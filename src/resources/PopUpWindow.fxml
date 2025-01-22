@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<DialogPane prefHeight="172.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PopUpWindowController">
+   <content>
+      <Pane prefHeight="0.0" prefWidth="395.0">
+         <children>
+            <Label fx:id="content" alignment="CENTER" layoutX="10.0" prefHeight="79.0" prefWidth="379.0" text="Alert Window" wrapText="true" />
+            <Button fx:id="yesBtn" layoutX="101.0" layoutY="75.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Yes" />
+            <Button fx:id="noBtn" layoutX="237.0" layoutY="75.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="59.0" text="No" />
+            <Button fx:id="damageCardBtn" layoutX="169.0" layoutY="75.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="58.0" />
+         </children>
+      </Pane>
+   </content>
+   <header>
+      <Pane prefHeight="43.0" prefWidth="395.0">
+         <children>
+            <Label fx:id="popUpHeader" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="14.0" prefWidth="376.0" text="Warning" />
+         </children>
+      </Pane>
+   </header>
+</DialogPane>

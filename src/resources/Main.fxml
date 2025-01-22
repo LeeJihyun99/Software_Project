@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="700.0" prefWidth="784.0" styleClass="bodybg" stylesheets="@mainbg.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <Region prefHeight="200.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
+      <VBox prefHeight="700.0" prefWidth="546.0" HBox.hgrow="ALWAYS">
+         <children>
+            <fx:include prefHeight="140.0" source="Cards.fxml" VBox.vgrow="ALWAYS" />
+            <Region prefHeight="14.0" prefWidth="546.0" VBox.vgrow="ALWAYS" />
+            <fx:include prefHeight="420.0" source="GameBoard.fxml" VBox.vgrow="NEVER" />
+            <Region prefHeight="14.0" prefWidth="140.0" VBox.vgrow="ALWAYS" />
+            <fx:include prefHeight="147.0" source="PlayerDeck.fxml" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+      <Region prefHeight="140.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
+      <VBox prefHeight="700.0" prefWidth="210.0" HBox.hgrow="ALWAYS">
+         <children>
+            <fx:include prefHeight="140.0" prefWidth="210.0" source="GameStats.fxml" VBox.vgrow="ALWAYS" />
+            <Region prefHeight="14.0" VBox.vgrow="ALWAYS" />
+            <fx:include prefHeight="245.0" prefWidth="210.0" source="DamageCard.fxml" VBox.vgrow="ALWAYS" />
+            <Region prefHeight="14.0" VBox.vgrow="ALWAYS" />
+            <!--
+            <fx:include prefHeight="410.0" source="TestChatWindow.fxml" />
+            -->
+            <fx:include prefHeight="287.0" source="ChatWindow.fxml" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+      <Region prefHeight="140.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
+   </children>
+</HBox>

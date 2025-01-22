@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="stack" prefHeight="275.0" prefWidth="1450.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlayerDeckController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox prefHeight="38.0" prefWidth="1450.0">
+               <children>
+                  <JFXButton fx:id="btnUpgradeReg1" prefHeight="22.0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets left="470.0" top="7.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="buttons" />
+                        <String fx:value="cards" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="btnUpgradeReg2" prefHeight="22.0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="buttons" />
+                        <String fx:value="cards" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="btnUpgradeReg3" prefHeight="22.0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="buttons" />
+                        <String fx:value="cards" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="btnUpgradeReg4" prefHeight="22.0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="buttons" />
+                        <String fx:value="cards" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="btnUpgradeReg5" prefHeight="22.0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="buttons" />
+                        <String fx:value="cards" />
+                     </styleClass>
+                  </JFXButton>
+                  <Label fx:id="permanentLabel" prefHeight="46.0" prefWidth="387.0" text="&lt;-- Click button to place your permanent upgrade card on the register." textFill="#64b5f6">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox fx:id="playerDeck" prefWidth="923.0" stylesheets="@style.css">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="198.0" prefWidth="800.0">
+                     <children>
+                        <Pane prefHeight="174.0" prefWidth="319.0">
+                           <children>
+                              <JFXButton fx:id="btnPermanent1" layoutY="46.0" prefHeight="117.0" prefWidth="105.0" text="Empty">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton fx:id="btnPermanent2" layoutX="106.0" layoutY="46.0" prefHeight="117.0" prefWidth="105.0" text="RearLaser">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton fx:id="btnPermanent3" layoutX="213.0" layoutY="46.0" prefHeight="117.0" prefWidth="105.0" text="AdminPrivilege">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </JFXButton>
+                              <Label fx:id="installedPermanentLabel" alignment="CENTER" layoutX="43.0" layoutY="14.0" prefHeight="14.0" prefWidth="229.0" text="Installed Permanent Upgrades" textAlignment="CENTER" textFill="#64b5f6" wrapText="true" />
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Pane>
+                        <VBox fx:id="hoverVbox" alignment="TOP_CENTER">
+                           <children>
+                              <Button fx:id="help" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="38.0" prefWidth="28.0" stylesheets="@style.css" text="Help" VBox.vgrow="ALWAYS">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="damageCards" alignment="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="78.0" stylesheets="@style.css" text="Damage">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <Pane prefHeight="199.0" prefWidth="510.0">
+                           <children>
+                              <GridPane fx:id="registerDeck" prefHeight="139.0" style="-fx-border-color: white;">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" stylesheets="@style.css" text="register 0" textFill="WHITE" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" stylesheets="@style.css" text="register 4" textFill="WHITE" GridPane.columnIndex="5" />
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" stylesheets="@style.css" text="register 3" textFill="WHITE" GridPane.columnIndex="4" />
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" stylesheets="@style.css" text="register 2" textFill="WHITE" GridPane.columnIndex="3" />
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" stylesheets="@style.css" text="register 1" textFill="WHITE" GridPane.columnIndex="2" />
+                                    <ImageView fx:id="Register0" fitHeight="128.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                                    <ImageView fx:id="Register1" fitHeight="128.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                                    <ImageView fx:id="Register2" fitHeight="128.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                                    <ImageView fx:id="Register3" fitHeight="128.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                                    <ImageView fx:id="Register4" fitHeight="128.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="223.0" layoutY="151.0" text="Energy Cubes: " textFill="#bfe9ff" />
+                              <Label layoutX="44.0" layoutY="150.0" text="Checkpoints:" textFill="#bfe9ff" />
+                              <Label fx:id="numCheckpoints" layoutX="122.0" layoutY="150.0" text="0" textFill="#bfe9ff" />
+                              <Label fx:id="numEnergycubes" layoutX="307.0" layoutY="152.0" text="0" textFill="#bfe9ff" />
+                              <ImageView fx:id="checkpointsimg" fitHeight="31.0" fitWidth="36.0" layoutX="8.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="energycubesimg" fitHeight="31.0" fitWidth="36.0" layoutX="181.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" />
+                              <JFXButton fx:id="upgrade" layoutX="376.0" layoutY="145.0" prefHeight="38.0" prefWidth="86.0" text="Upgrade">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                        <StackPane fx:id="stackMemory" prefHeight="196.0" prefWidth="473.0">
+                           <HBox.margin>
+                              <Insets bottom="50.0" left="8.0" top="4.0" />
+                           </HBox.margin>
+                           <children>
+                              <HBox prefHeight="196.0" prefWidth="440.0">
+                                 <children>
+                                    <VBox prefHeight="175.0" prefWidth="300.0">
+                                       <children>
+                                          <HBox prefHeight="171.0" prefWidth="300.0">
+                                             <children>
+                                                <VBox fx:id="cardDeck1" prefHeight="171.0" prefWidth="100.0" spacing="8.0">
+                                                   <children>
+                                                      <Button fx:id="Card1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="MoveI">
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                      <Button fx:id="Card2" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="PowerUp">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                      <Button fx:id="Card3" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="MoveIII">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets bottom="50.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox fx:id="cardDeck2" prefWidth="100.0" spacing="8.0">
+                                                   <children>
+                                                      <Button fx:id="Card4" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="MoveII">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                      <Button fx:id="Card5" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="Again">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                      <Button fx:id="Card6" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="UTurn">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets bottom="50.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox fx:id="cardDeck3" prefWidth="100.0" spacing="8.0">
+                                                   <children>
+                                                      <Button fx:id="Card7" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="TurnRight">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                      <Button fx:id="Card8" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="TurnLeft">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                      <Button fx:id="Card9" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@style.css" text="BackUp">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                      </Button>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets bottom="50.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox prefHeight="30.0" prefWidth="300.0">
+                                             <children>
+                                                <Label fx:id="msg" alignment="CENTER" prefHeight="14.0" prefWidth="396.0" textAlignment="CENTER" textFill="#64b5f6" wrapText="true" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXButton fx:id="btnSpamBlocker" layoutX="50.0" layoutY="48.0" text="SpamBlocker">
+                                             <styleClass>
+                                                <String fx:value="buttons" />
+                                                <String fx:value="cards" />
+                                             </styleClass>
+                                          </JFXButton>
+                                          <JFXButton fx:id="btnMemorySwap" layoutX="47.0" layoutY="99.0" text="MemorySwap">
+                                             <styleClass>
+                                                <String fx:value="buttons" />
+                                                <String fx:value="cards" />
+                                             </styleClass>
+                                          </JFXButton>
+                                          <Label fx:id="temporateLabel" layoutX="21.0" layoutY="14.0" text="Installed Temporary Upgrades" textFill="#64b5f6" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                              <JFXDialog fx:id="dialogMemorySwap" prefHeight="196.0" prefWidth="370.0" styleClass="floatingWindowforPopUp">
+                                 <StackPane.margin>
+                                    <Insets right="100.0" />
+                                 </StackPane.margin>
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox prefHeight="77.0" prefWidth="362.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="38.0" prefWidth="362.0" text="Choose 3 cards in your hand to exchange with the 3 new cards." textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="170.0" prefWidth="362.0">
+                                             <children>
+                                                <VBox prefHeight="146.0" prefWidth="123.0">
+                                                   <children>
+                                                      <Label fx:id="labelNewCard1" alignment="CENTER" prefHeight="32.0" prefWidth="125.0" text="Label" textAlignment="CENTER" wrapText="true" />
+                                                      <Pane>
+                                                         <children>
+                                                            <ImageView fx:id="imageViewArrow1" fitHeight="32.0" fitWidth="43.0" layoutX="42.0" pickOnBounds="true" preserveRatio="true" />
+                                                         </children>
+                                                      </Pane>
+                                                      <ComboBox fx:id="comboBoxExchange1" prefHeight="39.0" prefWidth="121.0" promptText="Your Cards" style="-fx-background-color: #0D47A1;" />
+                                                      <Label fx:id="labelChosenCard1" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" textAlignment="CENTER" wrapText="true" />
+                                                      <JFXButton fx:id="btnExchange1" alignment="CENTER" text="Exchange" textAlignment="CENTER" wrapText="true">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </VBox.margin>
+                                                      </JFXButton>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="146.0" prefWidth="123.0">
+                                                   <children>
+                                                      <Label fx:id="labelNewCard2" alignment="CENTER" prefHeight="38.0" prefWidth="130.0" text="Label" textAlignment="CENTER" wrapText="true" />
+                                                      <Pane>
+                                                         <children>
+                                                            <ImageView fx:id="imageViewArrow2" fitHeight="32.0" fitWidth="43.0" layoutX="42.0" pickOnBounds="true" preserveRatio="true" />
+                                                         </children>
+                                                      </Pane>
+                                                      <ComboBox fx:id="comboBoxExchange2" prefHeight="38.0" prefWidth="121.0" promptText="Your Cards" style="-fx-background-color: #0D47A1;" />
+                                                      <Label fx:id="labelChosenCard2" alignment="CENTER" prefHeight="26.0" prefWidth="124.0" textAlignment="CENTER" wrapText="true" />
+                                                      <JFXButton fx:id="btnExchange2" alignment="CENTER" text="Exchange" textAlignment="CENTER" wrapText="true">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </VBox.margin>
+                                                      </JFXButton>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="146.0" prefWidth="123.0">
+                                                   <children>
+                                                      <Label fx:id="labelNewCard3" alignment="CENTER" prefHeight="37.0" prefWidth="141.0" text="Label" textAlignment="CENTER" wrapText="true" />
+                                                      <Pane>
+                                                         <children>
+                                                            <ImageView fx:id="imageViewArrow3" fitHeight="32.0" fitWidth="43.0" layoutX="42.0" pickOnBounds="true" preserveRatio="true" />
+                                                         </children>
+                                                      </Pane>
+                                                      <ComboBox fx:id="comboBoxExchange3" prefHeight="38.0" prefWidth="121.0" promptText="Your Cards" style="-fx-background-color: #0D47A1;" />
+                                                      <Label fx:id="labelChosenCard3" alignment="CENTER" prefHeight="26.0" prefWidth="124.0" textAlignment="CENTER" wrapText="true" />
+                                                      <JFXButton fx:id="btnExchange3" alignment="CENTER" text="Exchange" textAlignment="CENTER" wrapText="true">
+                                                         <styleClass>
+                                                            <String fx:value="buttons" />
+                                                            <String fx:value="cards" />
+                                                         </styleClass>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </VBox.margin>
+                                                      </JFXButton>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </JFXDialog>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <JFXDialog fx:id="dialogUpgrade" maxWidth="450.0" prefHeight="250.0" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="25.0" left="550.0" />
+         </StackPane.margin>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="198.0" prefWidth="344.0">
+                     <children>
+                        <VBox prefHeight="198.0" prefWidth="153.0" spacing="13.0">
+                           <children>
+                              <JFXButton fx:id="upgradeBtnAdminPrivilege" alignment="CENTER" prefHeight="28.0" prefWidth="154.0" text="AdminPrivilege">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="upgradeBtnMemorySwap" alignment="CENTER" prefHeight="28.0" prefWidth="154.0" text="MemorySwap">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton fx:id="upgradeBtnRearLaser" alignment="CENTER" prefHeight="28.0" prefWidth="154.0" text="RearLaser">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton fx:id="upgradeBtnSpamBlocker" alignment="CENTER" prefHeight="28.0" prefWidth="154.0" text="SpamBlocker">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="cards" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                        <StackPane fx:id="stackupgrade">
+                           <children>
+                              <JFXDialog fx:id="dialogUpgradeDescription" prefHeight="198.0" prefWidth="284.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="upgradeName" alignment="CENTER" prefHeight="30.0" prefWidth="286.0" styleClass="textDark" text="Label" textAlignment="CENTER" textFill="#0d47a1" wrapText="true" />
+                                          <Label fx:id="upgradeCardTyp" alignment="CENTER" prefHeight="27.0" prefWidth="281.0" styleClass="textDark" text="Label" textAlignment="CENTER" textFill="#0d47a1" wrapText="true" />
+                                          <Label fx:id="upgradeDescription" alignment="CENTER" prefHeight="139.0" prefWidth="294.0" styleClass="textDark" text="Label" textAlignment="CENTER" textFill="#0d47a1" wrapText="true" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </JFXDialog>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="34.0" prefWidth="344.0">
+                     <children>
+                        <JFXButton fx:id="closeBtnUpgrade" styleClass="buttonsforPopUp" stylesheets="@style.css" text="close">
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+   </children>
+</StackPane>

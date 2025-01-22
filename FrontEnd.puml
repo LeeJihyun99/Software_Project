@@ -1,0 +1,177 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam groupInheritance 2
+
+package "Application" #E1CFB5{
+    class Main extends Application{
+        + {static} main(args:String[]):void
+        + start(primaryStage:Stage):void
+    }
+
+    class CardsController extends Application{
+        - specialProgrammingCardBtn:Button
+        + {static} main(args:String[]):void
+        + start(primaryStage:Stage):void
+    }
+
+    class ChatWindowController implements Initializable{
+        - charArea:TextArea
+        - input:TextField
+        - {static} clientHandler:ClientHandler
+        - copyOfNewestMessage:Message
+        + initialize():void
+        + sendButtonClicked(event:ActionEvent):void
+        + writeInput(message:Message):void
+        + handleMessagePlayerStatus(playerStatus:PlayerStatus):String
+        + propertyChange(evt:PropertyChangeEvent):void
+    }
+
+    class DamageCardController extends Application implements Initializable{
+        + {static} main(args:String[]):void
+        + initialize(url:URL,resourceBundle:ResourceBundle):void
+        + start(primaryStage:Stage):void
+    }
+
+    class GameBoardController  implements Initializable{
+        - clientHandler:ClientHandler
+        - picSize:int
+        - laserList:ArrayList<ArrayList<Integer>>
+        + initialize(url:URL,resourceBundle:ResourceBundle):void
+        + execute():void
+        + zoom(gameBoardVBox:VBox):void
+        + getPicture(name:String):Image
+        + setPicture(name:String, ColumnCount:int, RowCount:int):void
+        + setPictureRotated(name:String, ColumnCount:int, RowCount:int,rotation:int):void
+        + setPictureRotatedMirrored(name:String, ColumnCount:int, RowCount:int,rotation:int):void
+        + loadMap(reducedMapList:ArrayList<ArrayList<ArrayList<ReducedField>>>):void
+        + handleField(fieldList:ArrayList<ReducedField>, posX:int, posY:int):void
+        + handleLaser( laser:ReducedLaser,posX:int, posY:int):void
+        + setPictureNew( name:String,posX:int, posY:int, rotation:int, isMirrored:boolean):void
+    }
+
+    class GameStatsController extends Application{
+        + {static} main(args:String[]):void
+        + start(primaryStage:Stage):void
+    }
+
+    class LoginController extends Application implements Initializable{
+        - errorMsg:Label
+        - loginStart:Button
+        - userName:TextField
+        - clientHandler:ClientHandler
+        - name:String
+        + {static} main(args:String[]):void
+        + sendUsername(action:ActionEvent):void
+        + start(primaryStage:Stage):void
+        + openWaitingRoom(stage:Stage,c:ClientHandler):void
+        + initialize(url:URL,resourceBundle:ResourceBundle):void
+    }
+
+    class MainController implements Initializable{
+        + initialize(url:URL, resourceBundle:ResourceBundle):void
+    }
+
+    class MapRoomController extends Application implements PropertyChangeListener{
+        - gameStart:Button
+        - errorMsg:Label
+        - mapChoiceBox:ChoiceBox<String>
+        - chooseMapBtn:Button
+        - clientHandler:ClientHandler
+        - copyOfNewestMessage:Message
+        - waitingRoomController:WaitingRoomController
+        - chosenMap:String
+        - chosenMapList:List<String>
+        + {static} main(args:String[]):void
+        + execute(listOfMaps:ArrayList<String>):void
+        + switchToMain(event:ActionEvent):void
+        + doNotStartGameAlert():void
+        + getSizeOfPlayerReadyToPlay():int
+        + openMain():void
+        + chooseMapBtnClicked(event:ActionEvent):void
+        + handleMessageFromClientHandler(message:Message):void
+        + propertyChange(evt:PropertyChangeEvent):void
+        + start(primaryStage:Stage):void
+    }
+
+    class PlayerDeckController extends Application{
+        - card1:Rectangle
+        - register1:Rectangle
+        + dragCard():void
+        + start(primaryStage:Stage):void
+        + {static} main(args:String[]):void
+    }
+
+    class StartController implements PropertyChangeListener{
+        - startBtn:Button
+        - quitBtn:Button
+        - errorMsg:Label
+        - {static} clientHandler:ClientHandler
+        - copyOfNewestMessage:Message
+        + initialize():void
+        + switchToLogIn(event:ActionEvent):void
+        + QuitTheGame(event:ActionEvent):void
+        + propertyChange(evt:PropertyChangeEvent):void
+    }
+
+    class WaitingRoomController implements PropertyChangeListener{
+        - robot1:Button
+        - robot2:Button
+        - robot3:Button
+        - robot4:Button
+        - robot5:Button
+        - robot6:Button
+        - robot7:Button
+        - robot8:Button
+        - figure:int
+        - chooseBtn:Button
+        - waitMsg:Label
+        - clientHandler:ClientHandler
+        - copyOfNewestMessage:Message
+        + initialize():void
+        + switchToMapRoom(event:ActionEvent):void
+        + chooseRobotColor(event:ActionEvent):void
+        + chooseRobotBtnclicked(event:ActionEvent):void
+        + handleMessageFromClientHandler(message:Message):void
+        + popUpForReady():void
+        + chooseYesOrNo(button:Button,window:Stage,label:Label):void
+        + propertyChange(evt:PropertyChangeEvent):void
+    }
+}
+package "Server Seite" #CEE1B5{
+    class ClientHandler{
+        - socket:Socket
+        - name:String
+        - inputFromServer:BufferedReader
+        - inputFromUser:BufferedReader
+        - messagesForServer:PrintWriter
+        - ip:String
+        - port:int
+        - copyOfNewestMessage:Message
+        - messageSupport:PropertyChangeSupport
+        + setUpConnection():void
+        + tryToRegisterAtServer(desiredName:String):boolean
+        + handleIncomingChatInThread():void
+        + getCopyOfNewestMessage():Message
+        + handleMessageFromUser(chatMessageContent:String):void
+        + shutdownClient():void
+        + sendMessageSerialized(message:Message):void
+        + getDeserializedMessage(serializedMessage:String):Message
+        + addMessageSupport(listener:PropertyChangeListener):void
+        + removeMessageSupport(listener:PropertyChangeListener):void
+    }
+    abstract class Message implements Serializer
+}
+Message "n"-- "1" WaitingRoomController
+Message "n"-- "1" ChatWindowController
+Message "n"-- "1" ClientHandler
+Message "n"-- "1" StartController
+
+ClientHandler "1"-- "1" ChatWindowController
+ClientHandler "1"-- "1" WaitingRoomController
+ClientHandler "1"-- "1" StartController
+ClientHandler "1"-- "1" MapRoomController
+ClientHandler "1"-- "1" LoginController
+ClientHandler "1"-- "1" GameBoardController
+
+
+@enduml

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stack" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WaitingRoomController">
+   <children>
+      <JFXDialog fx:id="dialogReady" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="450.0" left="400.0" right="50.0" top="130.0" />
+         </StackPane.margin>
+         <children>
+            <VBox prefHeight="42.0" prefWidth="410.0">
+               <children>
+                  <Label fx:id="contentReady" alignment="CENTER" prefHeight="28.0" prefWidth="407.0" styleClass="textDark" text="Label" />
+                  <HBox prefHeight="41.0" prefWidth="410.0" spacing="10.0">
+                     <children>
+                        <JFXButton fx:id="yesBtn" styleClass="buttonsforPopUp" text="yes" />
+                        <JFXButton fx:id="noBtn" styleClass="buttonsforPopUp" text="no" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="250.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <VBox fx:id="waitingroomVBox" alignment="CENTER" styleClass="mainbackground" stylesheets="@style.css">
+         <children>
+            <Label fx:id="waitingroomlabel" text="Waiting Room" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="text" />
+                  <String fx:value="headline" />
+               </styleClass>
+            </Label>
+            <HBox alignment="CENTER_LEFT" styleClass="floatingBox">
+               <children>
+                  <Label alignment="CENTER" text="Robot" textFill="WHITE">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="-5.0" left="15.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="mid" />
+                     </styleClass>
+                  </Label>
+                  <Region prefWidth="10.0" HBox.hgrow="SOMETIMES" />
+                  <Label alignment="CENTER" text="First Player" textFill="WHITE">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="-5.0" right="30.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="mid" />
+                     </styleClass>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin></Region>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" styleClass="floatingBox">
+               <children>
+                  <GridPane fx:id="bigGridPane" pickOnBounds="false" prefWidth="595.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane fx:id="smallGridPane1" alignment="CENTER" gridLinesVisible="true" mouseTransparent="true" prefHeight="30.0" prefWidth="187.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="54.199981689453125" minWidth="8.599989318847655" prefWidth="35.200004196166994" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.19997558593752" minWidth="10.0" prefWidth="31.99999580383301" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.59998016357423" minWidth="10.0" prefWidth="91.20001220703124" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.59996337890627" minWidth="0.0" prefWidth="75.99998779296874" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="player1" alignment="CENTER" prefHeight="14.0" prefWidth="98.0" GridPane.columnIndex="2" />
+                              <Label fx:id="readyLabel1" alignment="CENTER" prefHeight="14.0" prefWidth="72.0" GridPane.columnIndex="3" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <ImageView fx:id="imageView1" fitHeight="31.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="smallGridPane4" alignment="CENTER" gridLinesVisible="true" prefHeight="30.0" prefWidth="187.0" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="54.199981689453125" minWidth="8.599989318847655" prefWidth="35.200004196166994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.19997558593752" minWidth="10.0" prefWidth="31.99999580383301" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.59998016357423" minWidth="10.0" prefWidth="91.20001220703124" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.59996337890627" minWidth="0.0" prefWidth="75.99998779296874" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="player4" alignment="CENTER" prefHeight="14.0" prefWidth="98.0" GridPane.columnIndex="2" />
+                              <Label fx:id="readyLabel4" alignment="CENTER" prefHeight="14.0" prefWidth="72.0" GridPane.columnIndex="3" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <ImageView fx:id="imageView4" fitHeight="31.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="smallGridPane2" alignment="CENTER" gridLinesVisible="true" prefHeight="30.0" prefWidth="187.0" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="54.199981689453125" minWidth="8.599989318847655" prefWidth="35.200004196166994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.19997558593752" minWidth="10.0" prefWidth="31.99999580383301" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.59998016357423" minWidth="10.0" prefWidth="91.20001220703124" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.59996337890627" minWidth="0.0" prefWidth="75.99998779296874" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="player2" alignment="CENTER" prefHeight="14.0" prefWidth="98.0" GridPane.columnIndex="2" />
+                              <Label fx:id="readyLabel2" alignment="CENTER" prefHeight="14.0" prefWidth="72.0" GridPane.columnIndex="3" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <ImageView fx:id="imageView2" fitHeight="31.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="smallGridPane5" alignment="CENTER" gridLinesVisible="true" prefHeight="30.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="54.199981689453125" minWidth="8.599989318847655" prefWidth="35.200004196166994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.19997558593752" minWidth="10.0" prefWidth="31.99999580383301" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.59998016357423" minWidth="10.0" prefWidth="91.20001220703124" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.59996337890627" minWidth="0.0" prefWidth="75.99998779296874" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="player5" alignment="CENTER" prefHeight="14.0" prefWidth="98.0" GridPane.columnIndex="2" />
+                              <Label fx:id="readyLabel5" alignment="CENTER" prefHeight="14.0" prefWidth="72.0" GridPane.columnIndex="3" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <ImageView fx:id="imageView5" fitHeight="31.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="smallGridPane3" alignment="CENTER" gridLinesVisible="true" prefHeight="30.0" prefWidth="187.0" GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="54.199981689453125" minWidth="8.599989318847655" prefWidth="35.200004196166994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.19997558593752" minWidth="10.0" prefWidth="31.99999580383301" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.59998016357423" minWidth="10.0" prefWidth="91.20001220703124" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.59996337890627" minWidth="0.0" prefWidth="75.99998779296874" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="player3" alignment="CENTER" prefHeight="14.0" prefWidth="98.0" GridPane.columnIndex="2" />
+                              <Label fx:id="readyLabel3" alignment="CENTER" prefHeight="14.0" prefWidth="72.0" GridPane.columnIndex="3" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <ImageView fx:id="imageView3" fitHeight="31.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="smallGridPane6" alignment="CENTER" gridLinesVisible="true" prefHeight="30.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="54.199981689453125" minWidth="8.599989318847655" prefWidth="35.200004196166994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.19997558593752" minWidth="10.0" prefWidth="31.99999580383301" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.59998016357423" minWidth="10.0" prefWidth="91.20001220703124" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.59996337890627" minWidth="0.0" prefWidth="75.99998779296874" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="player6" alignment="CENTER" prefHeight="14.0" prefWidth="98.0" GridPane.columnIndex="2" />
+                              <Label fx:id="readyLabel6" alignment="CENTER" prefHeight="14.0" prefWidth="72.0" GridPane.columnIndex="3" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <ImageView fx:id="imageView6" fitHeight="31.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ToggleButton fx:id="toggleBtn" mnemonicParsing="false" onAction="#toggleBtnClicked" styleClass="buttons" stylesheets="@style.css" text="Not ready" textAlignment="CENTER" />
+                        <Button fx:id="AIbtn" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addAI" styleClass="buttons" stylesheets="@style.css" text="Add AI" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" styleClass="floatingBox">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <fx:include prefHeight="250.0" prefWidth="350.0" source="ChatWindow.fxml" VBox.vgrow="SOMETIMES" />
+                     </children>
+                  </VBox>
+                  <VBox minWidth="350.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="mapLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Map">
+                           <styleClass>
+                              <String fx:value="text" />
+                              <String fx:value="headline" />
+                           </styleClass>
+                        </Label>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <ComboBox fx:id="mapChoiceBox" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES" />
+                              <Button fx:id="mapSelectedBtn" alignment="CENTER" mnemonicParsing="false" onAction="#mapSelectedBtnClicked" styleClass="buttons" stylesheets="@style.css" text="Select" />
+                           </children>
+                        </HBox>
+                        <Region maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT">
+                           <children>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <ImageView id="mapImage" fx:id="mapImage" fitHeight="150.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="gameStart" alignment="CENTER" mnemonicParsing="false" onAction="#switchToMain" styleClass="buttons" stylesheets="@style.css" text="Start" />
+                           </children>
+                        </HBox>
+                        <Region maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="selectedMapName" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" styleClass="text" textFill="#bfe9ff">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXDialog fx:id="dialogAI" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="340.0" left="370.0" right="50.0" top="250.0" />
+         </StackPane.margin>
+         <children>
+            <HBox prefHeight="18.0" prefWidth="398.0" spacing="2.0">
+               <children>
+                  <Label fx:id="contentAI" alignment="CENTER" prefHeight="40.0" prefWidth="362.0" styleClass="textDark" text="Label" />
+                  <JFXButton fx:id="closeBtnAI" styleClass="buttons" stylesheets="@style.css" text="close">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogMapSelect" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="220.0" left="350.0" right="70.0" top="375.0" />
+         </StackPane.margin>
+         <children>
+            <HBox prefHeight="31.0" prefWidth="390.0">
+               <children>
+                  <Label fx:id="contentMapSelect" alignment="CENTER" prefHeight="27.0" prefWidth="374.0" styleClass="textDark" text="Label" />
+                  <JFXButton fx:id="closeBtnMapSelect" styleClass="buttonsforPopUp" text="close">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogStart" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="140.0" left="450.0" right="70.0" top="470.0" />
+         </StackPane.margin>
+         <children>
+            <HBox prefHeight="23.0" prefWidth="352.0">
+               <children>
+                  <Label fx:id="contentStart" alignment="CENTER" prefHeight="27.0" prefWidth="257.0" styleClass="textDark" text="Label" />
+                  <JFXButton fx:id="closeBtnStart" styleClass="buttonsforPopUp" text="close" />
+               </children>
+            </HBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogChat" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="30.0" left="40.0" right="360.0" top="550.0" />
+         </StackPane.margin>
+         <children>
+            <HBox prefHeight="40.0" prefWidth="446.0">
+               <children>
+                  <Label fx:id="contentChat" alignment="CENTER" prefHeight="46.0" prefWidth="378.0" styleClass="textDark" text="Label" wrapText="true" />
+                  <JFXButton fx:id="closeBtnChat" styleClass="buttonsforPopUp" text="close">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin></JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogGameStarted" styleClass="floatingWindowforPopUp">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="446.0">
+               <children>
+                  <Label fx:id="contentGameStarted" alignment="CENTER" prefHeight="46.0" prefWidth="378.0" styleClass="textDark" text="Label" wrapText="true" />
+                  <JFXButton fx:id="closeBtnGameStarted" styleClass="buttonsforPopUp" text="close">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+         <StackPane.margin>
+            <Insets bottom="300.0" left="200.0" right="200.0" top="300.0" />
+         </StackPane.margin>
+      </JFXDialog>
+   </children>
+</StackPane>

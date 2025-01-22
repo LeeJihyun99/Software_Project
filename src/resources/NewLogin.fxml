@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="860.0" styleClass="mainbackground" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="140.0" prefWidth="860.0">
+                    <children>
+                  <Region HBox.hgrow="SOMETIMES" />
+                        <Label alignment="CENTER" text="Login" textFill="WHITE">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="headline" />
+                     </styleClass>
+                        </Label>
+                  <Region HBox.hgrow="SOMETIMES" />
+                        <Label alignment="CENTER" text="Robot" textFill="WHITE">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="headline" />
+                     </styleClass>
+                        </Label>
+                  <Region HBox.hgrow="SOMETIMES" />
+                    </children>
+                </HBox>
+            <StackPane fx:id="stack" prefHeight="294.0" prefWidth="904.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <JFXDialog fx:id="smallDialog" prefHeight="90.0" prefWidth="324.0" styleClass="floatingWindowforPopUp">
+                     <children>
+                        <VBox prefHeight="111.0" prefWidth="289.0">
+                           <children>
+                              <Label fx:id="header" alignment="CENTER" prefHeight="27.0" prefWidth="330.0" styleClass="textDark" text="Label" />
+                              <Label fx:id="content" alignment="CENTER" prefHeight="32.0" prefWidth="326.0" styleClass="textDark" text="Label" />
+                              <JFXButton fx:id="closeBtn" alignment="CENTER" styleClass="buttonsforPopUp" text="close" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="250.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                     </children>
+                     <StackPane.margin>
+                        <Insets bottom="50.0" left="450.0" right="70.0" top="120.0" />
+                     </StackPane.margin>
+                  </JFXDialog>
+                      <HBox alignment="CENTER">
+                          <children>
+                              <VBox alignment="TOP_CENTER">
+                                  <children>
+                                      <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Username: " textFill="WHITE">
+                                          <padding>
+                                              <Insets bottom="5.0" />
+                                          </padding>
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                          <VBox.margin>
+                                              <Insets />
+                                          </VBox.margin>
+                                 <styleClass>
+                                    <String fx:value="text" />
+                                    <String fx:value="mid" />
+                                 </styleClass>
+                                      </Label>
+                                      <TextField fx:id="userName" maxWidth="250.0">
+                                          <VBox.margin>
+                                              <Insets />
+                                          </VBox.margin>
+                                      </TextField>
+                              <Label fx:id="errorMsg" alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="379.0" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets top="25.0" />
+                                 </VBox.margin>
+                                 <styleClass>
+                                    <String fx:value="text" />
+                                    <String fx:value="mid" />
+                                 </styleClass>
+                              </Label>
+                                  </children>
+                              </VBox>
+                              <VBox alignment="CENTER">
+                                  <children>
+                              <Region VBox.vgrow="ALWAYS" />
+                              <HBox alignment="CENTER" VBox.vgrow="SOMETIMES">
+                                 <children>
+                                            <ImageView fx:id="robotImage" fitHeight="170.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER" />
+                                    <ImageView fx:id="robotHead" fitHeight="170.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER" />
+                                 </children>
+                              </HBox>
+                              <HBox VBox.vgrow="SOMETIMES">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <children>
+                                    <Region HBox.hgrow="SOMETIMES" />
+                                              <Button fx:id="robot1" alignment="CENTER" mnemonicParsing="false" onAction="#chooseRobotColor" style="-fx-background-color: orange;" styleClass="robotButtons" text="1" />
+                                              <Button fx:id="robot2" alignment="CENTER" mnemonicParsing="false" onAction="#chooseRobotColor" style="-fx-background-color: #22B14C;" styleClass="robotButtons" text="2" />
+                                              <Button fx:id="robot3" alignment="CENTER" mnemonicParsing="false" onAction="#chooseRobotColor" style="-fx-background-color: #00A2E8;" styleClass="robotButtons" text="3" />
+                                              <Button fx:id="robot4" alignment="CENTER" mnemonicParsing="false" onAction="#chooseRobotColor" style="-fx-background-color: #A349A4;" styleClass="robotButtons" text="4" />
+                                              <Button fx:id="robot5" alignment="CENTER" mnemonicParsing="false" onAction="#chooseRobotColor" style="-fx-background-color: #817F26;" styleClass="robotButtons" text="5" />
+                                              <Button fx:id="robot6" alignment="CENTER" mnemonicParsing="false" onAction="#chooseRobotColor" style="-fx-background-color: #7F7F7F;" styleClass="robotButtons" text="6" />
+                                    <Region HBox.hgrow="SOMETIMES" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="selectRobot" mnemonicParsing="false" onAction="#selectRobotBtnClicked" styleClass="buttons" text="Select">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Button>
+                              <Label fx:id="testLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" textFill="#bfe9ff" VBox.vgrow="ALWAYS">
+                                 <styleClass>
+                                    <String fx:value="mid" />
+                                    <String fx:value="text" />
+                                 </styleClass>
+                              </Label>
+                                  </children>
+                              </VBox>
+                          </children>
+                      </HBox>
+                  <JFXDialog fx:id="dialog" prefHeight="277.0" prefWidth="770.0" styleClass="floatingWindowforPopUp">
+                     <children>
+                        <VBox prefHeight="87.0" prefWidth="348.0" spacing="2.0">
+                           <children>
+                              <Label fx:id="headerBig" alignment="CENTER" prefHeight="27.0" prefWidth="347.0" styleClass="textDark" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="contentBig" alignment="CENTER" prefHeight="27.0" prefWidth="378.0" styleClass="textDark" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="closeBtnBig" styleClass="buttonsforPopUp" text="close">
+                                 <VBox.margin>
+                                    <Insets left="250.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                     </children>
+                     <StackPane.margin>
+                        <Insets left="250.0" right="250.0" top="160.0" />
+                     </StackPane.margin>
+                  </JFXDialog>
+               </children>
+            </StackPane>
+                <HBox alignment="CENTER" prefHeight="66.0" prefWidth="860.0">
+                    <children>
+                        <Button fx:id="next" mnemonicParsing="false" onAction="#switchToWaitingRoom" styleClass="buttons" text="Next">
+                            <HBox.margin>
+                                <Insets bottom="20.0" left="30.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="10.0" top="10.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

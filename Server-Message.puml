@@ -1,0 +1,399 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam groupInheritance 2
+
+page 2x2
+skinparam pageMargin 10
+
+package "Serverstruktur" #BDDBD6{
+
+class PlayerData{
+    - name:String
+    - clientID:int
+    - figure:int
+    - ready:boolean
+    - currentPlayer:boolean
+    - playedCards:String[]
+    - position:Position
+    - orientation:Direction
+    - energycount:int
+    - reachedCheckpoints:int
+    - cards:int
+    - registersFilled:boolean[]
+    + PlayerData(clientID:int)
+    + PlayerData(clientID:int, figure:int)
+    + addPlayedCard(card:String)
+}
+
+class ClientData{
+    - chatmessages:ArrayList<ReceivedChat>
+    - latestChatMessage:ReceivedChat
+    - latestErrorMessage:Error
+    - latestGameMessage:String
+    - player:ArrayList<PlayerData>
+    - availableMaps:ArrayList<String>
+    - chosenMap:ObjectProperty<ArrayList<ArrayList<ArrayList<ReducedField>>>>
+    - currentPhase:int
+    - cardsInHand:ArrayList<String>
+    - animation:String
+    - yourPlayerData:PlayerData
+    - lastRebooted:int
+    - yourClientID:int
+    + addPlayer(clientID:int, figure:int)
+}
+
+class ActiveCard{
+ - clientID:int
+ - card:String
+ + ActiveCard(clientID:int,card:String)
+}
+
+class Server{
+    - connections:ArrayList<ServerThread>
+    - threads:ArrayList<Thread>
+    + startServer():void
+    + isNameTaken(name:String):boolean
+    + getServerThreadViaName(name:String):ServerThread
+    + sendMessageToAll(content:String):void
+    + sendMessageToName(content:String, name:String):void
+    + sendMessageSerializedToName(message:Message, name:String):void
+    + broadcast(message:Message):void
+    + sendMessageToEveryoneElse(message:Message,serverThread:ServerThread):void
+    + {static} main(args:String[]):void
+}
+class ServerThread{
+    - socket:Socket
+    - relatedServer:Server
+    - nickname:String
+    - messagesFromUser:BufferedReader
+    - messagesForUser:PrintWriter
+    - thread:Thread
+    + ServerThread(socket:Socket, relatedServer:Server)
+    + run():void
+    + handlePersonalChatMessage(message:PersonalChatMessage):void
+    + identifyAndSetRecipientFromMessage(personalChatMessage:PersonalChatMessage):void
+    + sendServerMessageToMe(content:String):void
+    + registration():void
+    + shutdownConnection():void
+    + sendMessageSerialized(message:Message):void
+    + getDeserializedMessage(serializedMessage:String):Message
+}
+class ClientHandler{
+    - socket:Socket
+    - name:String
+    - inputFromServer:BufferedReader
+    - inputFromUser:BufferedReader
+    - messagesForServer:PrintWriter
+    - ip:String
+    - port:int
+    - copyOfNewestMessage:Message
+    - messageSupport:PropertyChangeSupport
+    + setUpConnection():void
+    + tryToRegisterAtServer(desiredName:String):boolean
+    + handleIncomingChatInThread():void
+    + getCopyOfNewestMessage():Message
+    + handleMessageFromUser(chatMessageContent:String):void
+    + shutdownClient():void
+    + sendMessageSerialized(message:Message):void
+    + getDeserializedMessage(serializedMessage:String):Message
+    + addMessageSupport(listener:PropertyChangeListener):void
+    + removeMessageSupport(listener:PropertyChangeListener):void
+}
+}
+
+package "Protocol" #ECDCCE {
+    abstract class Message implements Serializer
+
+    class Serializer{
+       - {static} MESSAGE_TYPES:ArrayList<ClassType>
+       + serializeMessage(message:Message):String
+       + deserializeMessage(serializedMessage:String):Message
+       + getAllMessageTypes():ArrayList<ClassType>
+       + findClasses(directory:File, packageName:String):ArrayList<ClassType>
+    }
+
+    class DummyMessage extends Message{
+        - messageType:String
+        - messageBody:String
+    }
+
+    package "Verbindungsaufbau" #E3BF9F{
+          class HelloClient{
+            - messageType:String
+            - messageBody:MessageBody
+            + HelloClient(protocol:String)
+            - MessageBody(protocol:String)
+          }
+          class HelloServer extends Message{
+            - messageType:String
+            - messageBody:MessageBody
+            + HelloServer(group:String,isAI:boolean,protocol:String)
+            - MessageBody(group:String , isAI:boolean ,  protocol:String)
+          }
+          class Alive extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            - MessageBody()
+          }
+          class Welcome extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + Welcome(clientID:int)
+            - MessageBody(clientID:int)
+          }
+    }
+
+    package "Chatnachrichten" #CA917D {
+         class ConnectionUpdate extends Message{
+           - messageBody:MessageBody
+           - messageType:String
+           + ConnectionUpdate(clientID:int,isConnected:boolean,action:String)
+           - MessageBody(clientID:int,isConnected:boolean,action:String)
+         }
+         class Error extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + Error(error:String)
+            - MessageBody(error:String)
+         }
+         class ReceivedChat extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + ReceivedChat(message:String,from:int,isPrivate:boolean)
+            - MessageBody(message:String,from:int,isPrivate:boolean)
+         }
+         class SendChat extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + SendChat(message:String,to:int)
+            - MessageBody(message:String,to:int)
+         }
+    }
+    package "Spielkarten" #91B973{
+        class CardPlayed extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + CardPlayed(clientID:int,card:String)
+            - MessageBody(clientID:int,card:String)
+        }
+        class PlayCard extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + PlayCard(card:String)
+            - MessageBody(error:String)
+        }
+    }
+    package "Aktionen" #B5D69C{
+        class Animation extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + Animation(type:String)
+            - MessageBody(type:String)
+        }
+        class CheckPointReached extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + CheckPointReached(clientID:int,number:int)
+            - MessageBody(clientID:int,number:int)
+        }
+        class Energy extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + Energy(clientID:int,count:int,source:String)
+            - MessageBody(clientID:int,count:int,source:String)
+        }
+        class GameFinished extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + GameFinished(clientID:int)
+            - MessageBody(clientID:int)
+        }
+        class Movement extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + Movement(clientID:int,x:int,y:int)
+            - MessageBody(clientID:int,x:int,y:int)
+        }
+        class PlayerTurning extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + PlayerTurning(clientID:int, rotation:String)
+            - MessageBody(clientID:int, rotation:String)
+        }
+        class Reboot extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + Reboot(clientID:int)
+            - MessageBody(clientID:int)
+        }
+        class RebootDirection extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + RebootDirection(direction:String)
+            - MessageBody(direction:String)
+        }
+    }
+    package "Lobby" #DDD9A0{
+        class GameStarted extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + GameStarted(gameboard:ArrayList<ArrayList<ArrayList<ReducedField>>>)
+            - MessageBody(gameboard:ArrayList<ArrayList<ArrayList<ReducedField>>>)
+        }
+        class MapSelected extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + MapSelected(map:String)
+            - MessageBody(map:String)
+        }
+        class PlayerAdded extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + PlayerAdded(clientID:int,name:String, figure:int)
+            - MessageBody(clientID:int,name:String, figure:int)
+        }
+        class PlayerStatus extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + PlayerStatus(clientID:int,ready:boolean)
+            - MessageBody(clientID:int,ready:boolean)
+        }
+        class PlayerValues extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + PlayerValues(name:String, figure:int)
+            - MessageBody(name:String, figure:int)
+        }
+        class SelectedMap extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + SelectedMap(availableMaps:ArrayList<String>)
+            - MessageBody(availableMaps:ArrayList<String>)
+        }
+        class SetStatus extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + SetStatus(ready:boolean)
+            - MessageBody(ready:boolean)
+        }
+    }
+    package "Spielzug" #DFA89E{
+        class ActivePhase extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + ActivePhase(phase:int)
+            - MessageBody(phase:int)
+        }
+        class CardSelected extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + CardSelected(clientID:int,register:int,filled:boolean)
+            - MessageBody(clientID:int,register:int,filled:boolean)
+        }
+        class CardsYouGotNow extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + CardsYouGotNow(cards:ArrayList<String>)
+            - MessageBody(cards:ArrayList<String>)
+        }
+        class CurrentCards extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + CurrentCards()
+            - MessageBody()
+        }
+        class CurrentPlayer extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + CurrentPlayer(clientID:int)
+            - MessageBody(clientID:int)
+        }
+        class NotYourCards extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + NotYourCards(clientID:int,cardsInHand:int)
+            - MessageBody(clientID:int,cardsInHand:int)
+        }
+        class ReplaceCard extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + ReplaceCard(register:int,newCard:String,clientID:int)
+            - MessageBody(register:int,newCard:String,clientID:int)
+        }
+        class SelectedCard extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + SelectedCard(card:String,register:int)
+            - MessageBody(card:String,register:int)
+        }
+        class SelectionFinished extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + SelectionFinished(clientID:int)
+            - MessageBody(clientID:int)
+        }
+        class SetStartingPoint extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + SetStartingPoint(x:int,y:int)
+            - MessageBody(x:int,y:int)
+        }
+        class ShuffleCoding extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + ShuffleCoding(clientID:int)
+            - MessageBody(clientID:int)
+        }
+        class StartingPointTaken extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + StartingPointTaken(x:int,y:int,(clientID:int)
+            - MessageBody(x:int,y:int,clientID:int)
+        }
+        class TimerEnded extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + TimerEnded(clientIDs:ArrayList<Integer>)
+            - MessageBody(clientIDs:ArrayList<Integer>)
+        }
+        class TimerStarted extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + TimerStarted()
+            - MessageBody()
+        }
+        class YourCards extends Message{
+            - messageBody:MessageBody
+            - messageType:String
+            + YourCards(cardsInHand:ArrayList<String>))
+            - MessageBody(cardsInHand:ArrayList<String>))
+        }
+    }
+}
+
+package "FrontEnd"{
+    class ChatWindowController
+}
+
+
+package "GameStructure" #CCAAFF{
+  class Game
+  class Player
+}
+
+Player --o ServerThread
+
+Game "1" --o "1" Server
+
+Server <|-- ServerThread
+
+ClientHandler --o ActiveCard
+ClientHandler --o PlayerData
+ClientHandler o-- ChatWindowController
+
+ClientData --o PlayerData
+
+Message o-- ChatWindowController
+
+@enduml

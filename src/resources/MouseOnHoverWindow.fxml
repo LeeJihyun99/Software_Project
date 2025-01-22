@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" prefHeight="117.0" prefWidth="350.0" styleClass="root" stylesheets="@hoverwindowstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MouseOnHoverWindowController">
+   <children>
+      <Label fx:id="title" alignment="CENTER" layoutX="3.0" layoutY="4.0" prefHeight="18.0" prefWidth="383.0" text="Title" textFill="#bfe9ff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <StackPane layoutY="27.0" prefHeight="178.0" prefWidth="383.0">
+         <children>
+            <Pane fx:id="upgradePane" prefHeight="200.0" prefWidth="200.0" />
+            <Pane fx:id="damagePane" prefHeight="100.0" prefWidth="383.0">
+               <children>
+                  <Label fx:id="Nr4" alignment="CENTER" layoutX="319.0" layoutY="153.0" prefHeight="18.0" prefWidth="29.0" text="0" textFill="#bfe9ff">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Nr3" alignment="CENTER" layoutX="221.0" layoutY="153.0" prefHeight="18.0" prefWidth="28.0" text="0" textFill="#bfe9ff">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Nr2" alignment="CENTER" layoutX="135.0" layoutY="153.0" prefHeight="18.0" prefWidth="28.0" text="0" textFill="#bfe9ff">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Nr1" alignment="CENTER" layoutX="40.0" layoutY="153.0" prefHeight="19.0" prefWidth="28.0" text="0" textFill="#bfe9ff">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="img1" fitHeight="146.0" fitWidth="93.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img2" fitHeight="146.0" fitWidth="93.0" layoutX="102.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img3" fitHeight="146.0" fitWidth="93.0" layoutX="193.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img4" fitHeight="156.0" fitWidth="99.0" layoutX="280.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </Pane>
+            <Pane fx:id="helpPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="explanation" alignment="CENTER" layoutX="5.0" layoutY="3.0" prefHeight="173.0" prefWidth="373.0" style="-fx-background-color: #bfe9ff; -fx-background-radius: 6;" text="Label" textFill="#0d47a1" wrapText="true">
+                     <padding>
+                        <Insets left="2.0" right="2.0" />
+                     </padding>
+                  </Label>
+               </children></Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

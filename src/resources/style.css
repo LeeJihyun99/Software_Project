@@ -1,0 +1,489 @@
+/* Images and Backgroundpictures */
+.bodybg {
+    -fx-background-image: url(images/background.png);
+    -fx-background-size: 100% 100%;
+}
+
+/*
+.startbg{
+    -fx-background-image: url(images/start/startbg3.jpg);
+    -fx-pref-width: 800;
+    -fx-pref-height: 320;
+    -fx-background-size: 100% 100%;
+} */
+
+.startbg {
+    -fx-background-image: url(images/backgroundWithText.jpg);
+    -fx-background-size: 100% 100%;
+}
+
+.spamc{
+    -fx-background-image: url(images/cards/spam.png);
+    -fx-background-size: 100% 100%;
+}
+
+.trojanc{
+    -fx-background-image: url(images/cards/trojan.png);
+    -fx-background-size: 100% 100%;
+}
+
+.wormc{
+    -fx-background-image: url(images/cards/worm.png);
+    -fx-background-size: 100% 100%;
+}
+
+.virusc{
+    -fx-background-image: url(images/cards/virus.png);
+    -fx-background-size: 100% 100%;
+}
+
+.energybank{
+    -fx-background-image: url(images/playerDeck/energycube.png);
+    -fx-background-size: 100% 100%;
+}
+
+.carddeck{
+    -fx-background-image: url(images/cards/carddeck.png);
+    -fx-background-size: 100% 100%;
+}
+
+.crown{
+    -fx-background-image: url(images/crown.png);
+    -fx-background-size: 100% 100%;
+}
+
+.robot{
+    -fx-background-image: url(images/robots/robotbody8.png);
+        -fx-background-size: 100% 100%;
+}
+
+.mainbackground{
+    -fx-background-image: url(images/mainbackground1.jpg);
+    -fx-background-size: 100% 100%;
+}
+
+
+/* Timer in Main */
+.progress-indicator .percentage {
+    -fx-fill: null;
+}
+.progress-indicator {
+    -fx-padding: 0 0 -18 0;
+}
+
+
+/* Buttons */
+.buttons {
+    -fx-padding: 0.45em 1.2em;
+    -fx-border-insets: 0.25em;
+    -fx-background-insets: 0.25em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-font-size: 1.5em;
+    -fx-border-radius: 0.4em;
+    /*-fx-background-color: #BBDEFB;*/
+    -fx-background-color: #64B5F6;
+    -fx-text-fill: #0D47A1;
+    -fx-background-radius: 0.4em;
+}
+
+.buttonsForHelpDamage{
+    -fx-padding: 0.45em 1.2em;
+    -fx-border-insets: 0.25em;
+    -fx-background-insets: 0.25em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-font-size: 1.5em;
+    -fx-border-radius: 0.4em;
+    /*-fx-background-color: #BBDEFB;*/
+    -fx-background-color: #0D47A1;
+    -fx-text-fill: #64B5F6;
+}
+.buttonsforPopUp {
+    -fx-padding: 0.5em 0.75em;
+    -fx-border-insets: 0.25em;
+    -fx-background-insets: 0.25em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-font-size: 1.5em;
+    -fx-border-radius: 0.4em;
+    /*-fx-background-color: #BBDEFB;*/
+    -fx-background-color: #64B5F6;
+    -fx-text-fill: #0D47A1;
+    -fx-background-radius: 0.4em;
+}
+
+.buttons:hover {
+    -fx-background-color: #90CAF9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5,0,0,0);
+}
+
+.buttonsforPopUp:hover {
+    -fx-background-color: #90CAF9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5,0,0,0);
+}
+.buttonsForHelpDamage.cards{
+    -fx-font-size: 1em;
+    -fx-padding: 1em;
+}
+.buttons.cards {
+    -fx-font-size: 1em;
+    -fx-padding: 1em;
+}
+
+buttons.upgradeCards {
+    -fx-font-size: 1em;
+    -fx-padding: 1em;
+}
+
+.robotButtons {
+    -fx-padding: 0.5em 1em 0.6em 1em;
+    -fx-border-insets: 0.2em 0.2em 0.5em 0.2em;
+    -fx-background-insets: 0.2em 0.2em 0.5em 0.2em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-font-size: 1.2em;
+    -fx-background-radius: 0.5em;
+}
+
+#buttonHBox {
+    -fx-spacing: 1.5em;
+}
+
+.buttons.start {
+    -fx-font-size: 1.5em;
+}
+
+
+/* Winning Window */
+#winningDialog {
+    -fx-border-width: 0.5em;
+    -fx-background-color: #1E88E5;
+}
+
+#congratsLabel {
+    -fx-padding: 0.5em;
+    -fx-border-insets: 0.5em;
+    -fx-background-insets: 0.5em;
+    -fx-font-size: 2.5em;
+    -fx-font-family: "Roboto Light", SansSerif;
+    -fx-text-fill: #0D47A1;
+}
+
+.winningLabel {
+    -fx-padding: 0.7em;
+    -fx-border-insets: 0.7em;
+    -fx-background-insets: 0.7em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-text-fill: #0D47A1;
+}
+
+#winningStats {
+    -fx-padding: 0.5em 0.5em 0.25em 0.5em;
+    -fx-border-insets: 0.5em 0.5em 0.25em 0.5em;
+    -fx-background-insets: 0.5em 0.5em 0.25em 0.5em;
+    -fx-font-size: 1.75em;
+    -fx-font-family: "Roboto Light", sans-serif;
+}
+
+.winningBox {
+    -fx-background-color: #BBDEFB;
+    -fx-background-radius: 2em;
+    -fx-border-color: #1E88E5;
+    -fx-border-width: 0.6em;
+    -fx-border-radius: 1em;
+}
+
+#winningLabelBox {
+    -fx-border-width: 0.7em 0.5em 0.5em 0.5em;
+}
+
+
+#winningMapRoom {
+
+    -fx-padding: 1em;
+    -fx-border-insets: 0.5em;
+    -fx-background-insets: 0.5em;
+}
+
+#winningQuit {
+    -fx-padding: 1em 1.5em;
+    -fx-border-insets: 0.5em;
+    -fx-background-insets: 0.5em;
+}
+
+
+
+/* Text */
+.text {
+    -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+    -fx-border-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-text-fill: #bfe9ff;
+}
+
+.textDark {
+    -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+    -fx-border-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-text-fill: #0D47A1;
+}
+
+
+.text.mid , .textDark.mid {
+    -fx-padding: 0.25em 0.25em 0.25em 0.25em;
+    -fx-border-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-font-size: 1.5em;
+}
+
+.text.headline , .textDark.headline {
+    -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+    -fx-border-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-font-family: "Roboto Light", sans-serif;
+    -fx-font-size: 2em;
+}
+
+/* Waiting Room */
+
+#mapLabel {
+    -fx-padding: 1em 1em 1em 1em;
+    -fx-border-insets: 1em 1em 1em 1em;
+    -fx-background-insets: 1em 1em 1em 1em;
+}
+
+#waitingroomVBox {
+    -fx-padding: 5em;
+    -fx-border-insets: 5em;
+    -fx-background-insets: 5em;
+}
+
+#waitingroomlabel {
+    -fx-padding: 0em 0.5em 0.5em 0.5em;
+    -fx-border-insets: 0em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0em 0.5em 0.5em 0.5em;
+    -fx-font-size: 3em;
+}
+
+/* Map selection */
+.combo-box {
+    -fx-background-color: #BBDEFB;
+    -fx-mark-color: #1E88E5;
+    -fx-text-fill: #0D47A1;
+}
+
+.combo-box .list-view .list-cell:hover {
+    -fx-background-color: #1E88E5;
+    -fx-text-fill: #BBDEFB;
+}
+
+.combo-box .list-view .list-cell {
+    -fx-background-color: #BBDEFB;
+    -fx-text-fill: #0D47A1;
+}
+
+.combo-box .cell:selected {
+    -fx-text-fill: #0D47A1;
+}
+
+.combo-box .scroll-bar:vertical .increment-button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+}
+
+.combo-box .scroll-bar:vertical .decrement-button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+}
+
+.combo-box .scroll-bar .increment-arrow{
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+.combo-box .scroll-bar .decrement-arrow{
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+.combo-box .scroll-bar:vertical .thumb {
+    -fx-background-color: #1E88E5;
+}
+
+.combo-box .scroll-bar:vertical .track{
+    -fx-background-color: #BBDEFB;
+}
+
+#labelSplit {
+    -fx-background-color: transparent;
+    -fx-padding: 0.5em 0.5em 1.5em 0.5em;
+}
+
+#labelSplit > .split-pane-divider {
+    -fx-background-color: transparent;
+}
+
+/* Main Window */
+#bottomHBox {
+    -fx-padding: -2em 0em 0em 0em;
+    -fx-border-insets: -2em 0em 0em 0em;
+    -fx-background-insets: -2em 0em 0em 0em;
+}
+
+#rightVBox {
+    -fx-padding: 0em 0em 0em -10em;
+    -fx-border-insets: 0em 0em 0em -10em;
+    -fx-background-insets: 0em 0em 0em -10em;
+}
+
+#leftVBox {
+    -fx-padding: 0em -3em 0em 0em;
+    -fx-border-insets: 0em -3em 0em 0em;
+    -fx-background-insets: 0em -3em 0em 0em;
+}
+
+
+/* Chat */
+.text-field {
+    -fx-padding: 0.5em 1.5em 1em 1.5em;
+    -fx-border-insets: 0em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0em 0.5em 0.5em 0.5em;
+    -fx-background-radius: 3em;
+    -fx-background-color: #BBDEFB;
+    -fx-text-fill: #0D47A1;
+    -fx-prompt-text-fill: #2196F3;
+}
+
+.text-field:focused {
+    -fx-prompt-text-fill: transparent;
+}
+
+#sendBtn {
+    -fx-padding: 0.5em 1.5em 1em 1.5em;
+    -fx-border-insets: 0em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0em 0.5em 0.5em 0.5em;
+    -fx-background-radius: 3em;
+    -fx-background-color: #64B5F6;
+    -fx-text-fill: #0D47A1;
+}
+
+#sendBtn:hover {
+    -fx-background-color: #90CAF9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5,0,0,0);
+}
+
+#chatArea {
+    -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+    -fx-border-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-color: #BBDEFB;
+}
+
+#chatArea .content {
+    -fx-background-color: #BBDEFB;
+    -fx-wrap-text: true;
+}
+
+#chatVbox {
+    -fx-background-color: #0D47A1;
+    -fx-background-radius: 1em;
+}
+
+#chatArea .scroll-bar:vertical .increment-button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+}
+
+#chatArea .scroll-bar:vertical .decrement-button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+}
+
+#chatArea .scroll-bar .increment-arrow{
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+#chatArea .scroll-bar .decrement-arrow{
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+#chatArea .scroll-bar:vertical .thumb {
+    -fx-background-color: #1E88E5;
+}
+
+#chatArea .scroll-bar:vertical .track{
+    -fx-background-color: #BBDEFB;
+}
+
+#bigGridPane {
+    -fx-background-color: #BBDEFB;
+}
+
+/* PlayerInfo Boxes */
+
+.playerInfoBox {
+    -fx-background-color: #BBDEFB;
+    -fx-background-radius: 2em;
+    -fx-border-color: #1E88E5;
+    -fx-border-radius: 1em;
+    -fx-border-width: 0.5em;
+}
+
+.playerInfoLabel {
+    -fx-text-fill: #0D47A1;
+    -fx-translate-x: 1.5em;
+    -fx-translate-y: 0.6em;
+}
+
+#startVBox {
+    -fx-padding: 20em 20em 7em 20em;
+}
+
+.floatingBox {
+    -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+    -fx-border-insets: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-insets: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.floatingWindow {
+    -fx-background-color: #BBDEFB;
+    -fx-background-radius: 2em;
+    -fx-padding: 1.5em;
+    -fx-border-color: #1E88E5;
+    -fx-border-radius: 1em;
+    -fx-border-width: 0.5em;
+}
+
+.floatingWindowforPopUp {
+    -fx-background-color: #BBDEFB;
+    -fx-background-radius: 2em;
+    -fx-border-color: #1E88E5;
+    -fx-border-radius: 1em;
+    -fx-border-width: 0.5em;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 15,0.75,2,2);
+}
+
+.upgradeHBox {
+    -fx-background-color: #BBDEFB;
+    -fx-background-radius: 1em;
+    -fx-padding: 1em 0em;
+    -fx-spacing: 1em;
+    -fx-border-color: #1E88E5;
+    -fx-border-width: 0.25em;
+    -fx-border-radius: 1em;
+}
+
+#upgradeMainBox {
+    -fx-background-color: #1E88E5;
+    -fx-background-radius: 1em;
+    -fx-border-color: #1E88E5;
+    -fx-border-radius: 1em;
+    -fx-border-width: 0.25em;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 20,0.75,2,2);
+}

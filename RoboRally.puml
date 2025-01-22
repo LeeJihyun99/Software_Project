@@ -1,0 +1,566 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam groupInheritance 2
+
+package "Card" #BECFDC{
+    abstract class Card{
+         - cardName:String
+         - image:Image
+         + getCardName():String
+         + execute(r:Robot):void
+    }
+    package "Programming" #86A0B4 {
+        abstract class ProgrammingCard extends Card
+        class AgainCard extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + getCardName():String
+                + execute(r:Robot):void
+                + repeat(r:Robot):void
+            }
+            class MoveI extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + MoveCard(amount:int):void
+                + getCardName():String
+                + execute(r:Robot):void
+                + move(r:Robot):void
+            }
+            class MoveII extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + MoveCard(amount:int):void
+                + getCardName():String
+                + execute(r:Robot):void
+                + move(r:Robot):void
+            }
+            class MoveIII extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + MoveCard(amount:int):void
+                + getCardName():String
+                + execute(r:Robot):void
+                + move(r:Robot):void
+            }
+            class TurnRight extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + TurnCard(direction:int):void
+                + turn(r:Robot,dir:int):void
+                + setCardName(dir:int):void
+                + getCardName():String
+                + execute(Robot):void
+            }
+            class TurnLeft extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + TurnCard(direction:int):void
+                + turn(r:Robot,dir:int):void
+                + setCardName(dir:int):void
+                + getCardName():String
+                + execute(Robot):void
+            }
+            class UTurn extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + TurnCard(direction:int):void
+                + turn(r:Robot,dir:int):void
+                + setCardName(dir:int):void
+                + getCardName():String
+                + execute(Robot):void
+            }
+            class PowerUpCard extends ProgrammingCard{
+                - cardName:String
+                - cardImage:Image
+                + charge(r:Robot):void
+                + getCardName():String
+                + execute(r:Robot):void
+            }
+    }
+
+    package "Damage" #6C9DC3 {
+        abstract class DamageCard extends Card
+
+        class Spam extends DamageCard{
+            - cardName:String
+            - cardImage:Image
+            + getCardName():String
+            + execute(r:Robot):void
+        }
+        class Trojan extends DamageCard{
+            - cardName:String
+            - cardImage:Image
+            + getCardName():String
+            + execute(r:Robot):void
+        }
+        class Virus extends DamageCard{
+            - cardName:String
+            - cardImage:Image
+            + getCardName():String
+            + execute(r:Robot):void
+        }
+        class Worm extends DamageCard{
+            - cardName:String
+            - cardImage:Image
+            + getCardName():String
+            + execute(r:Robot):void
+        }
+    }
+}
+
+package "Game" #9AC2A9 {
+    class Game{
+        - activePhase:int
+        - gameboard:Gameboard
+        - playerQueue:List<Player>
+        - currentPlayer:Player
+        - spamCardStack:List<SpamCard>
+        - virusCardStack:List<VirusCard>
+        - trojanHorseCardsStack:List<TrojanHorseCard>
+        - wormCardStack:List<WormCard>
+        - allProgrammingCards:List<ProgrammingCard>
+        - gameServer:Server
+        - programmingPhase:ProgrammingPhase
+        - activationPhase:ActivationPhase
+        - allCheckPoints:List<Checkpoint>
+        - finalCheckPoint:Checkpoint
+        - gameActive:boolean
+        - round:int
+        - iterateRegistry:int
+        + Game(gameboard:Gameboard, playerQueue:List<Player>)
+        + calculateNextPlayer(givenPlayer:Player):Robot
+        + runGame():void
+        + setUpGame():void
+        + setFinalCheckPoint():void
+        + collectAllCheckPoints:void
+        + checkRobotCheckPoints():void
+        + runProgPhase():void
+        + runActivationPhase():void
+    }
+    class Player{
+        - playerID:int
+        - name:String
+        - robot:Robot
+        - energyReserve:int
+        - currentGame:Game
+        - programmingCardsStack:List<ProgrammingCard>
+        - serverThread:ServerThread
+        + Player(playerID:int,name:String,robot:Robot)
+        + Player(playerID:int,name:String,robot:Robot, serverThread:ServerThread)
+    }
+    class Robot{
+        - amountCubes:int
+        - register:ProgrammingCard[5]
+        - checkpointToken:int
+        - lookDir:Direction
+        - robotPlayer:Player
+        - checkpointsVisited:List<Checkpoint>
+        - position:Position
+        - damageCardReceived:DamageCard
+        - discardPile:List<Card>
+        - currentGame:Game
+        - figure:int
+        + Robot(amountCubes:int, checkpointToken:int, lookDir: Direction, robotPlayerPlayer)
+        + Robot(figure:int)
+        + activateLaser():void
+        + takeDamage():void
+        + reboot():void
+        + scanForRobotRadius(radius:int):List<Robot>
+        + scanForRobotLine(radius:int):List<Robot>
+        + pushInDirection(r:Robot, direction:Direction):void
+        + turn(rotation:int):void
+        + move(distance:int, dir:Direction):Position
+        + fallOfBoard(robot:Robot):boolean
+        + notOnConveyorBelt(otherRobot:Robot):boolean
+        + occupyField(newPos:Position):void
+        + leaveField():void
+        + isPathFree(distance:int):boolean
+        + getLastValidPositionInDistance(distance:int):Position
+        + getDistanceToAntenna():double
+    }
+    class ProgrammingPhase{
+        - currGame:Game
+        - playerList:List<Player>
+        - drawnCards:List<Cards>
+        - drawnCardsName:List<String>
+        - chosenCards:List<Cards>
+        + ProgrammingPhase(game:Game)
+        + execute():void
+        + enoughCards(p:Player):void
+        + notEnoughCards(p:Player,restCards:int):void
+    }
+    class ActivationPhase{
+      - currGame:Game
+      - playerList:List<Player>
+      - organizedForRound:List<Player>
+      - distanceResult:Map<Double,Player>
+      - occupiedBlueConveyorBelt:List<ConveyorBelt>
+      - occupiedGreenConveyorBelt:List<ConveyorBelt>
+      - occupiedPushPanel:List<PushPanel>
+      - occupiedGears:List<Gears>
+      - occupiedBoardLaser:List<BoardLaser>
+      - occupiedEnergySpaces:List<EnergySpaces>
+      - occupiedCheckPoints:List<Checkpoint>
+      - iteration:int
+      - landOn:List<FieldList>
+      - playedCards:List<Card>
+      + ActivationPhase(game:Game,iteration:int)
+      + execute():void
+      + sortPlayers():void
+      + sortFields(FieldList fl):void
+    }
+}
+
+package "Image" #E1C0C8 {
+   class Image
+   class ImageHandler{
+      + generateAntenna():Image
+      + generateBoardLaser():Image
+      + generateCheckpoint():Image
+      + generateConveyorBelt(speed:int):Image
+      + generateDefaultField():Image
+      + generateEnergySpaces():Image
+      + generateGears():Image
+      + generatePit():Image
+      + generatePushPanel():Image
+      + generateRebootToken():Image
+      + generateWall(wallOrientation:WallOrientation):Image
+      + generateStartField():Image
+   }
+}
+
+package "Field" #CDB8CE {
+
+    abstract class Field{
+        - position:Position
+        - name:String
+        - occupied:boolean
+        - passThrough:boolean
+        - image:Image
+        - currentRobot:Robot
+        - parentList:FieldList
+        + Field(position:Position, name:String, passThrough:boolean, image:Image)
+        + actionOnLanding(r:Robot):void
+        + actionOnActivation(r:Robot):void
+    }
+    class Antenna extends Field{
+        + Antenna(position:Position, name:String, passThrough:boolean, image:Image, orientation:ArrayList<String>)
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class BoardLaser extends Field{
+        - laserNum:int
+        - wallOrientation:WallOrientation
+        + BoardLaser(position:Position, name:String, passThrough:boolean, image:Image, laserNum:int)
+        + useLaser():void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class Checkpoint extends Field{
+        + Checkpoint(position:Position, name:String, passThrough:boolean,image:Image, checkNum:int)
+        + check(robot:Robot):void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class ConveyorBelt extends Field{
+        - rotation:int
+        - direction:Direction
+        - green:boolean
+        + ConveyorBelt(position:Position, name:String, passThrough:boolean, image:, orientation:ArrayList<String>, speed:int)
+        + moveRobot(robot:Robot):void
+        + moveOneFurther(robot:Robot):void
+        + rotateRobot(robot:Robot):void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class DefaultField extends Field{
+        + DefaultField(position:Position, name:String, passThrough:boolean, image:Image)
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class EnergySpaces extends Field{
+        - cubePresent:boolean
+        + EnergySpaces(position:Position, name:String, passThrough:boolean, image:Image,cubes:int)
+        + activate(robot:Robot):void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class Gears extends Field{
+        - clockwise:boolean
+        + Gears(position:Position, name:String, passThrough:boolean, image:Image, clockwise:boolean)
+        + rotate(robot:Robot):void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class Pit extends Field{
+        + Pit(position:Position, name:String, passThrough:boolean, image:Image)
+        + fall(robot:Robot):void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class PushPanel extends Field{
+        - regNumbers:ArrayList<Integer>
+        - wallOrientation:WallOrientation
+        + PushPanel(position:Position, name:String, passThrough:boolean, image:Image, regNumbers:ArrayList<Integer>)
+        + push(robot:Robot):void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class RebootToken extends Field{
+        + RebootToken(position:Position, name:String, passThrough:boolean, image:Image, direction:Direction)
+        + reboot(robot:Robot):void
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class Wall extends Field{
+        - wallOrientation:WallOrientation
+        + Wall(position:Position, name:String, passThrough:boolean, image:Image, wallOrientation:WallOrientation)
+        + calculateCollision(gameboard:Gameboard, direction:Direction):boolean
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+    class StartPoint extends Field{
+        + StartPoint(position:Position,name:String,passThrough:boolean,image:Image)
+        + actionOnLanding(robot:Robot):void
+        + actionOnActivation(robot:Robot):void
+        + reduce():ReduceField
+    }
+
+    package "tools" #A585B4 {
+
+        abstract class Board{
+            - board:FieldList[][]
+            - columnCount:int
+            - rowCount:int
+            + Board(sizeX:int,sizeY:int)
+            + hasDefaultField(FieldList fl):boolean
+            + resetFieldAtPosition(position:Position):void
+            + addSingleFieldAtPosition(field:Field, position:Position):void
+            + addFieldAtPosition(FieldList fieldList, position:Position):void
+            + getFieldsAtPosition(position:Position):FieldList
+            + isIndexValid(x:int,y:int)
+            + initializeWithDefaultField():void
+            + initializeFieldAtPosition(position:Position):void
+            + convertToReducedBoard():ArrayList<ReducedField>[][]
+            + convertToReducedList():ArrayList<ArrayList<ArrayList<ReducedField>>>
+        }
+        class BoardConverter{
+            + convertToReducedBoard(originalBoard:Board):ArrayList<ReducedField>[][]
+            + convertToReducedList(originalBoard:Board):ArrayList<ArrayList<ArrayList<ReducedField>>>
+        }
+        class BoardGenerator{
+            + generateDizzyHighway():Gameboard
+            + generateExtraCrispy():Gameboard
+            + generateLostBearings():Gameboard
+            + generateDeathTrap():Gameboard
+            + generateGameboardFromString(abstractBoard:String):Gameboard
+            + identifyParameters(parameters:String[],type:String):Board
+            + interpretLine(board:Board,y:int,line:String):void
+            + identifyField(parameter:String, x:int,y:int):Field
+            + identifyFieldWithParameter(fieldType:String,parameter:String,x:int,y:int):Field
+            + identifyFields(parameter:String, x:int,y:int):FieldList
+            + getInterval(fullLine:String,startIndex:int, startSymbol:String, endSymbol:String):String
+            + getIndexOfEndsymbol(fullLine:String,startIndex:int, startSymbol:String, endSymbol:String):String
+            + generateDirection(directionLetter:String):Direction
+            + readFromFile(fileName:String):String
+        }
+        abstract class BoardModule extends Board{
+            - boardID:String
+            + BoardModule(sizeX:int,sizeY:int,boardID:String)
+        }
+        class Position{
+            + Position(x:int, y:int)
+        }
+        class Direction{
+            - directionInteger:int
+            - directionString:String
+            + Direction(direction:int)
+            + Direction(direction:String)
+            + calculateNewPositionOfAction(Position position, int actionWeight)
+            + changeDirectionCounterClockwise():void
+            + changeDirectionClockwise():void
+        }
+        class Course extends BoardModule{
+            + Course(boardID:String)
+        }
+        class FieldGenerator{
+            - {static} imageHandler:ImageHandler
+            + generateAntenna(position:Position, ArrayList<String> orientation):Antenna
+            + generateBoardLaser(position:Position, laserNum:int):BoardLaser
+            + generateCheckpoint(position:Position,checkPointNum:int):Checkpoint
+            + generateConveyorBelt(position:Position, direction:ArrayList<Direction>, speed:int):ConveyorBelt
+            + generateDefaultField(position:Position):DefaultField
+            + generateEnergySpaces(position:Position):EnergySpaces
+            + generateGears(position:Position, clockwise:boolean):Gears
+            + generatePit(position:Position):Pit
+            + generatePushPanel(position:Position, regNumbers:ArrayList<Integer>, wallOrientation:WallOrientation):PushPanel
+            + generateRebootToken(position:Position):RebootToken
+            + generateWall(position:Position, wallOrientation:WallOrientation):Wall
+            + generateStartPoint(position:Position):StartPoint
+        }
+        class FieldList{
+            - fields:ArrayList<Field>
+            - occupied:boolean
+            - currentRobot:Robot
+            - isOnBoard:String
+            + FieldList(boardID:String)
+            + initializeFields():void
+            + clear():void
+            + setFieldsNull():void
+            + removeField(field:Field):void
+            + addField(field:Field):void
+            + addFieldArrayList(fields:ArrayList<Field>):void
+        }
+        class StartArea extends BoardModule{
+            + StartArea()
+        }
+        class WallOrientation{
+            + WallOrientation(top:boolean, right:boolean, bottom:boolean, lest:boolean)
+            + getOrientationVector():boolean[]
+        }
+        class Gameboard extends Board{
+            - antennaOnBoard:Antenna
+            - rebootTokenOnBoard:RebootToken
+            + Gameboard(sizeX:int, sizeY:int)
+            + isIndexValid(sizeX:int, sizeY:int):boolean
+            + getNeighbors(position:Position):Field[][]
+            + rebootRobotAtToken(robot:Robot)
+            + addCourse(course:Course, startPosition:Position):void
+            + addStartBoard(startArea:StartArea, startPosition:Position):void
+            + scanAndSetAntennaAndRebootTokenOnBoard():void
+        }
+        interface ReduceField{
+            reduce():ReduceField
+        }
+
+    }
+    package "reducedFields" #BB789C {
+        class FieldDeserializer{
+            - {static} FIELD_TYPES:ArrayList<ClassType>
+            + {static} deserializeMessage(serializedMessage:JsonObject):ArrayList<ArrayList<ArrayList<ReducedField>>>
+            + {static} getAllFieldTypes():ArrayList<ClassType>
+            + {static} findClasses(directory:File,packageName:String):ArrayList<ClassType>
+            + {static} printFIELD_TYPES():void
+        }
+        abstract class ReducedField{
+            - type:String
+            - isOnBoard:String
+            + ReducedField(type:String, isOnBoard:String)
+        }
+        class ReducedAntenna extends ReducedField{
+                - orientation:ArrayList<String>
+                + ReducedAntenna(isOnBoard:String, orientation:ArrayList<String>)
+        }
+            class ReducedLaser extends ReducedField{
+                - count:int
+                - orientation:ArrayList<String>
+                + ReducedLaser(isOnBoard:String, orientation:ArrayList<String>,count:int)
+            }
+            class ReducedCheckpoint extends ReducedField{
+                - count:int
+                + ReducedCheckpoint(isOnBoard:String,count:int)
+            }
+            class ReducedConveyorBelt extends ReducedField{
+                - speed:int
+                - orientation:ArrayList<String>
+                + ReducedConveyorBelt(isOnBoard:String,speed:int,orientation:ArrayList<String>)
+            }
+            class ReducedEmpty extends ReducedField{
+                + ReducedEmpty(isOnBoard:String)
+            }
+            class ReducedEnergySpaces extends ReducedField{
+                - count:int
+                + ReducedEnergySpaces(isOnBoard:String,count:int)
+            }
+            class ReducedGears extends ReducedField{
+                - orientation:ArrayList<String>
+                + ReducedGears(isOnBoard:String, orientation:ArrayList<String>)
+            }
+            class ReducedPit extends ReducedField{
+                + ReducedPit(isOnBoard:String)
+            }
+            class ReducedPushPanel extends ReducedField{
+                - registers:ArrayList<Integer>
+                - orientation:ArrayList<String>
+                + ReducedPushPanel(isOnBoard:String, orientation:ArrayList<String>, registers:ArrayList<Integer>)
+            }
+            class ReducedRestartPoint extends ReducedField{
+                - orientation:ArrayList<String>
+                + ReducedRestartPoint(isOnBoard:String),orientation:ArrayList<String>)
+            }
+            class ReducedWall extends ReducedField{
+                - orientation:ArrayList<String>
+                + Wall(isOnBoard:String, orientation:ArrayList<String>)
+            }
+            class ReducedStartPoint extends ReducedField{
+                + StartPoint(orientation:ArrayList<String>)
+            }
+    }
+}
+package "Server Struktur" #BCC7D5 {
+class Server{
+    - connections:ArrayList<ServerThread>
+    - threads:ArrayList<Thread>
+    + startServer():void
+    + isNameTaken(name:String):boolean
+    + getServerThreadViaName(name:String):ServerThread
+    + sendMessageToAll(content:String):void
+    + sendMessageToName(content:String, name:String):void
+    + sendMessageSerializedToName(message:Message, name:String):void
+    + broadcast(message:Message):void
+    + sendMessageToEveryoneElse(message:Message,serverThread:ServerThread):void
+    + {static} main(args:String[]):void
+}
+class ServerThread{
+    - socket:Socket
+    - relatedServer:Server
+    - nickname:String
+    - messagesFromUser:BufferedReader
+    - messagesForUser:PrintWriter
+    - thread:Thread
+    + ServerThread(socket:Socket, relatedServer:Server)
+    + run():void
+    + handlePersonalChatMessage(message:PersonalChatMessage):void
+    + identifyAndSetRecipientFromMessage(personalChatMessage:PersonalChatMessage):void
+    + sendServerMessageToMe(content:String):void
+    + registration():void
+    + shutdownConnection():void
+    + sendMessageSerialized(message:Message):void
+    + getDeserializedMessage(serializedMessage:String):Message
+}
+}
+
+ProgrammingCard "1..n" o-- "1" Player
+
+Player "1" o-- "1..n" Robot
+
+Position "1" o-- "1..n" Robot
+Position "1" o-- "1" Field
+
+Game o-- ProgrammingPhase
+Game o-- ActivationPhase
+Game "1"--"2..6" Player
+Game "1" --o "1" Server
+
+Field "1..n"-- "1" FieldList
+
+Gameboard "1" *-- "n"Field
+Gameboard "1" *-- "1..n" Course
+Gameboard "1" *-- "1" StartArea
+
+ImageHandler -- FieldGenerator
+
+Server <|-- ServerThread
+
+@enduml

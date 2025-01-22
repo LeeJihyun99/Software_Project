@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stack" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewMainController">
+   <children>
+      <JFXDialog fx:id="dialogError" maxHeight="150.0" maxWidth="400.0" styleClass="floatingWindowforPopUp" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets bottom="500.0" left="300.0" right="300.0" />
+         </StackPane.margin>
+         <children>
+            <VBox prefHeight="159.0" prefWidth="226.0">
+               <children>
+                  <Label fx:id="contentError" alignment="CENTER" prefHeight="107.0" prefWidth="314.0" styleClass="textDark" text="Label" textAlignment="CENTER" wrapText="true" />
+                  <JFXButton fx:id="closeBtnError" styleClass="buttonsforPopUp" text="close">
+                     <VBox.margin>
+                        <Insets left="170.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogDamage" maxHeight="250.0" maxWidth="350.0" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="200.0" left="50.0" right="500.0" top="250.0" />
+         </StackPane.margin>
+         <children>
+            <VBox prefHeight="161.0" prefWidth="364.0" spacing="3.0">
+               <children>
+                  <Region VBox.vgrow="SOMETIMES" />
+                  <Label fx:id="popUpHeader" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="textDark" text="Label" VBox.vgrow="SOMETIMES" />
+                  <Label fx:id="contentDamage" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="textDark" text="Label" VBox.vgrow="SOMETIMES" />
+                  <HBox alignment="CENTER" VBox.vgrow="SOMETIMES">
+                     <children>
+                        <Region HBox.hgrow="SOMETIMES" />
+                        <JFXButton fx:id="damageBtn1" maxWidth="1.7976931348623157E308" styleClass="buttonsforPopUp" />
+                        <Region HBox.hgrow="SOMETIMES" />
+                        <JFXButton fx:id="damageBtn2" maxWidth="1.7976931348623157E308" styleClass="buttonsforPopUp" />
+                        <Region HBox.hgrow="SOMETIMES" />
+                        <JFXButton fx:id="damageBtn3" maxWidth="1.7976931348623157E308" styleClass="buttonsforPopUp" />
+                        <Region HBox.hgrow="SOMETIMES" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Region VBox.vgrow="SOMETIMES" />
+                  <JFXButton fx:id="closeBtnDamage" styleClass="buttonsforPopUp" text="close">
+                     <VBox.margin>
+                        <Insets left="250.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <Region VBox.vgrow="SOMETIMES" />
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogReboot" maxHeight="250.0" maxWidth="350.0" styleClass="floatingWindowforPopUp">
+         <StackPane.margin>
+            <Insets bottom="200.0" left="600.0" right="50.0" top="250.0" />
+         </StackPane.margin>
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="rebootHeader" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Label" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                     <styleClass>
+                        <String fx:value="textDark" />
+                        <String fx:value="headline" />
+                     </styleClass></Label>
+                  <Label fx:id="rebootContent" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="textDark" text="Label" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Region HBox.hgrow="SOMETIMES" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <JFXButton fx:id="topBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="buttonsforPopUp" text="top" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="bottomBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="buttonsforPopUp" text="bottom" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="SOMETIMES" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <JFXButton fx:id="rightBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="buttonsforPopUp" text="right" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="leftBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="buttonsforPopUp" text="left" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="SOMETIMES" />
+                        <VBox>
+                           <children>
+                              <ImageView fx:id="robotImgReboot" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="SOMETIMES" />
+                     </children>
+                  </HBox>
+                  <JFXButton fx:id="chooseCloseBtnReboot" alignment="CENTER" styleClass="buttonsforPopUp" textAlignment="CENTER" wrapText="true">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogUpgradeFor2" maxHeight="500.0" maxWidth="700.0">
+         <children>
+            <VBox fx:id="upgradeMainBox">
+               <children>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <ImageView fx:id="upgradeShopImgFor2" fitHeight="55.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Upgrade Shop" textAlignment="CENTER" textFill="#0d47a1">
+                           <styleClass>
+                              <String fx:value="textDark" />
+                              <String fx:value="headline" />
+                           </styleClass></Label>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <HBox fx:id="upgradeMiddleHBox" alignment="CENTER_LEFT">
+                           <children>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <VBox>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="63.0" text="Player" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="22.0" prefWidth="124.0" text="Upgrade Card" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                       </children>
+                                    </HBox>
+                                    <GridPane fx:id="gridpanePlayerListUpgradeFor2" alignment="CENTER" gridLinesVisible="true" maxHeight="116.0" prefHeight="116.0" prefWidth="200.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.4000244140625" minWidth="10.0" prefWidth="63.600006103515625" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.39999389648438" minWidth="10.0" prefWidth="124.39999389648438" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="147.0" text="name" textAlignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="132.0" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="66.0" text="name" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="111.0" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <Label fx:id="currentPlayerFor2" alignment="CENTER" prefHeight="31.0" prefWidth="194.0" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <JFXButton fx:id="upgrade1For2">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade1ImgFor2" fitHeight="133.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade2For2">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade2ImgFor2" fitHeight="133.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <StackPane fx:id="stackUpgradeCardFor2" prefHeight="326.0" prefWidth="250.0">
+                                 <children>
+                                    <JFXDialog fx:id="dialogUpgradeCardFor2">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label fx:id="labelUpgradeCardNameFor2" alignment="CENTER" prefHeight="46.0" prefWidth="238.0" text="card name" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="textDark" />
+                                                      <String fx:value="headline" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label fx:id="labelUpgradeCardDescriptionFor2" alignment="CENTER" prefHeight="254.0" prefWidth="240.0" styleClass="textDark" text="description" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </JFXDialog>
+                                 </children>
+                              </StackPane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="labelChosenCardFor2" alignment="CENTER" prefHeight="38.0" prefWidth="688.0" styleClass="textDark" text="Chosen card here shown by clicking upgrade card" textAlignment="CENTER" textFill="#0d47a1" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <JFXButton fx:id="btnUpgradeBuyFor2" styleClass="buttonsforPopUp" text="buy" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnUpgradeNotBuyFor2" styleClass="buttonsforPopUp" text="I won't buy this round." textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogUpgradeFor3" maxHeight="500.0" maxWidth="700.0">
+         <children>
+            <VBox fx:id="upgradeMainBox1">
+               <children>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <ImageView fx:id="upgradeShopImgFor3" fitHeight="55.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Upgrade Shop" textAlignment="CENTER" textFill="#0d47a1">
+                           <styleClass>
+                              <String fx:value="textDark" />
+                              <String fx:value="headline" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <HBox fx:id="upgradeMiddleHBox1" alignment="CENTER_LEFT">
+                           <children>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <VBox>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="63.0" text="Player" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="22.0" prefWidth="124.0" text="Upgrade Card" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                       </children>
+                                    </HBox>
+                                    <GridPane fx:id="gridpanePlayerListUpgradeFor3" alignment="CENTER" gridLinesVisible="true" maxHeight="156.0" prefHeight="156.0" prefWidth="189.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="65.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="124.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <Label fx:id="currentPlayerFor3" alignment="CENTER" prefHeight="31.0" prefWidth="194.0" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <JFXButton fx:id="upgrade1For3">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade1ImgFor3" fitHeight="133.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade2For3">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade2ImgFor3" fitHeight="133.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade3For3">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade3ImgFor3" fitHeight="133.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <StackPane fx:id="stackUpgradeCardFor3" prefHeight="326.0" prefWidth="250.0">
+                                 <children>
+                                    <JFXDialog fx:id="dialogUpgradeCardFor3">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label fx:id="labelUpgradeCardNameFor3" alignment="CENTER" prefHeight="46.0" prefWidth="238.0" text="card name" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="textDark" />
+                                                      <String fx:value="headline" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label fx:id="labelUpgradeCardDescriptionFor3" alignment="CENTER" prefHeight="254.0" prefWidth="240.0" styleClass="textDark" text="description" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </JFXDialog>
+                                 </children>
+                              </StackPane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="labelChosenCardFor3" alignment="CENTER" prefHeight="38.0" prefWidth="688.0" styleClass="textDark" text="Chosen card here shown by clicking upgrade card" textAlignment="CENTER" textFill="#0d47a1" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <JFXButton fx:id="btnUpgradeBuyFor3" styleClass="buttonsforPopUp" text="buy" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnUpgradeNotBuyFor3" styleClass="buttonsforPopUp" text="I won't buy this round." textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogUpgradeFor4" maxHeight="500.0" maxWidth="700.0">
+         <children>
+            <VBox fx:id="upgradeMainBox2">
+               <children>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <ImageView fx:id="upgradeShopImgFor4" fitHeight="55.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Upgrade Shop" textAlignment="CENTER" textFill="#0d47a1">
+                           <styleClass>
+                              <String fx:value="textDark" />
+                              <String fx:value="headline" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <HBox fx:id="upgradeMiddleHBox2" alignment="CENTER_LEFT">
+                           <children>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <VBox>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="63.0" text="Player" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="22.0" prefWidth="124.0" text="Upgrade Card" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                       </children>
+                                    </HBox>
+                                    <GridPane fx:id="gridpanePlayerListUpgradeFor4" alignment="CENTER" gridLinesVisible="true" maxHeight="177.0" prefHeight="177.0" prefWidth="189.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.4000244140625" minWidth="10.0" prefWidth="63.600006103515625" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.39999389648438" minWidth="10.0" prefWidth="124.39999389648438" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="112.0" text="name" textAlignment="CENTER" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="112.0" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <Label fx:id="currentPlayerFor4" alignment="CENTER" prefHeight="31.0" prefWidth="194.0" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <Pane prefHeight="326.0" prefWidth="215.0">
+                                 <children>
+                                    <JFXButton fx:id="upgrade1For4" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade1ImgFor4" fitHeight="122.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade2For4" layoutX="100.0" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade2ImgFor4" fitHeight="122.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade3For4" layoutY="150.0" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade3ImgFor4" fitHeight="122.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade4For4" layoutX="100.0" layoutY="150.0" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade4ImgFor4" fitHeight="122.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </Pane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <StackPane fx:id="stackUpgradeCardFor4" prefHeight="326.0" prefWidth="250.0">
+                                 <children>
+                                    <JFXDialog fx:id="dialogUpgradeCardFor4">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label fx:id="labelUpgradeCardNameFor4" alignment="CENTER" prefHeight="46.0" prefWidth="238.0" text="card name" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="textDark" />
+                                                      <String fx:value="headline" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label fx:id="labelUpgradeCardDescriptionFor4" alignment="CENTER" prefHeight="254.0" prefWidth="240.0" styleClass="textDark" text="description" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </JFXDialog>
+                                 </children>
+                              </StackPane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="labelChosenCardFor4" alignment="CENTER" prefHeight="38.0" prefWidth="688.0" styleClass="textDark" text="Chosen card here shown by clicking upgrade card" textAlignment="CENTER" textFill="#0d47a1" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <JFXButton fx:id="btnUpgradeBuyFor4" styleClass="buttonsforPopUp" text="buy" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnUpgradeNotBuyFor4" styleClass="buttonsforPopUp" text="I won't buy this round." textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogUpgradeFor5" maxHeight="620.0" maxWidth="700.0">
+         <children>
+            <VBox fx:id="upgradeMainBox3" prefHeight="520.0" prefWidth="688.0">
+               <children>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <ImageView fx:id="upgradeShopImgFor5" fitHeight="55.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Upgrade Shop" textAlignment="CENTER" textFill="#0d47a1">
+                           <styleClass>
+                              <String fx:value="textDark" />
+                              <String fx:value="headline" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" prefHeight="424.0" prefWidth="688.0" styleClass="upgradeHBox">
+                     <children>
+                        <HBox fx:id="upgradeMiddleHBox3" alignment="CENTER_LEFT" prefHeight="417.0" prefWidth="688.0">
+                           <children>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <VBox>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="63.0" text="Player" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="22.0" prefWidth="124.0" text="Upgrade Card" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                       </children>
+                                    </HBox>
+                                    <GridPane fx:id="gridpanePlayerListUpgradeFor5" alignment="CENTER" gridLinesVisible="true" maxHeight="217.0" prefHeight="217.0" prefWidth="189.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.4000244140625" minWidth="10.0" prefWidth="63.600006103515625" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.39999389648438" minWidth="10.0" prefWidth="124.39999389648438" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="22.0" text="name" textAlignment="CENTER" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="22.0" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <Label fx:id="currentPlayerFor5" alignment="CENTER" prefHeight="31.0" prefWidth="194.0" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <Pane prefHeight="424.0" prefWidth="215.0">
+                                 <children>
+                                    <JFXButton fx:id="upgrade1For5" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade1ImgFor5" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade2For5" layoutX="100.0" layoutY="40.0" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade2ImgFor5" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade3For5" layoutY="115.0" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade3ImgFor5" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade4For5" layoutX="100.0" layoutY="160.0" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade4ImgFor5" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade5For5" layoutY="220.0" prefHeight="125.0" prefWidth="90.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade5ImgFor5" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </Pane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <StackPane fx:id="stackUpgradeCardFor5" prefHeight="326.0" prefWidth="250.0">
+                                 <children>
+                                    <JFXDialog fx:id="dialogUpgradeCardFor5">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label fx:id="labelUpgradeCardNameFor5" alignment="CENTER" prefHeight="46.0" prefWidth="238.0" text="card name" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="textDark" />
+                                                      <String fx:value="headline" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label fx:id="labelUpgradeCardDescriptionFor5" alignment="CENTER" prefHeight="254.0" prefWidth="240.0" styleClass="textDark" text="description" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </JFXDialog>
+                                 </children>
+                              </StackPane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="labelChosenCardFor5" alignment="CENTER" prefHeight="66.0" prefWidth="688.0" styleClass="textDark" text="Chosen card here shown by clicking upgrade card" textAlignment="CENTER" textFill="#0d47a1" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefWidth="688.0" styleClass="upgradeHBox">
+                     <children>
+                        <JFXButton fx:id="btnUpgradeBuyFor5" styleClass="buttonsforPopUp" text="buy" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnUpgradeNotBuyFor5" styleClass="buttonsforPopUp" text="I won't buy this round." textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <JFXDialog fx:id="dialogUpgradeFor6" maxHeight="620.0" maxWidth="800.0">
+         <children>
+            <VBox fx:id="upgradeMainBox4">
+               <children>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <ImageView fx:id="upgradeShopImgFor6" fitHeight="55.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Upgrade Shop" textAlignment="CENTER" textFill="#0d47a1">
+                           <styleClass>
+                              <String fx:value="textDark" />
+                              <String fx:value="headline" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <HBox fx:id="upgradeMiddleHBox4" alignment="CENTER_LEFT">
+                           <children>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <VBox>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="63.0" text="Player" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="22.0" prefWidth="124.0" text="Upgrade Card" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin></Label>
+                                       </children>
+                                    </HBox>
+                                    <GridPane fx:id="gridpanePlayerListUpgradeFor6" alignment="CENTER" gridLinesVisible="true" maxHeight="258.0" prefHeight="258.0" prefWidth="189.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.4000244140625" minWidth="10.0" prefWidth="63.600006103515625" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.39999389648438" minWidth="10.0" prefWidth="124.39999389648438" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="name" textAlignment="CENTER" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="23.0" text="name" textAlignment="CENTER" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="23.0" text="upgradeCard" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <Label fx:id="currentPlayerFor6" alignment="CENTER" prefHeight="31.0" prefWidth="194.0" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <Pane prefHeight="326.0" prefWidth="215.0">
+                                 <children>
+                                    <JFXButton fx:id="upgrade1For6" prefHeight="110.0" prefWidth="102.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade1ImgFor6" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade2For6" layoutX="100.0" prefHeight="110.0" prefWidth="115.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade2ImgFor6" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade3For6" layoutY="115.0" prefHeight="110.0" prefWidth="102.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade3ImgFor6" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade4For6" layoutX="100.0" layoutY="115.0" prefHeight="110.0" prefWidth="115.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade4ImgFor6" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade5For6" layoutY="220.0" prefHeight="110.0" prefWidth="102.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade5ImgFor6" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="upgrade6For6" layoutX="100.0" layoutY="220.0" prefHeight="110.0" prefWidth="102.0">
+                                       <graphic>
+                                          <ImageView fx:id="upgrade6ImgFor6" fitHeight="100.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </Pane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                              <StackPane fx:id="stackUpgradeCardFor6" prefHeight="326.0" prefWidth="250.0">
+                                 <children>
+                                    <JFXDialog fx:id="dialogUpgradeCardFor6">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label fx:id="labelUpgradeCardNameFor6" alignment="CENTER" prefHeight="46.0" prefWidth="238.0" text="card name" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="textDark" />
+                                                      <String fx:value="headline" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label fx:id="labelUpgradeCardDescriptionFor6" alignment="CENTER" prefHeight="254.0" prefWidth="240.0" styleClass="textDark" text="description" textAlignment="CENTER" textFill="#0d47a1" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </JFXDialog>
+                                 </children>
+                              </StackPane>
+                              <Region HBox.hgrow="SOMETIMES" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="labelChosenCardFor6" alignment="CENTER" prefHeight="38.0" prefWidth="688.0" styleClass="textDark" text="Chosen card here shown by clicking upgrade card" textAlignment="CENTER" textFill="#0d47a1" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" styleClass="upgradeHBox">
+                     <children>
+                        <JFXButton fx:id="btnUpgradeBuyFor6" styleClass="buttonsforPopUp" text="buy" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnUpgradeNotBuyFor6" styleClass="buttonsforPopUp" text="I won't buy this round." textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </JFXDialog>
+      <BorderPane fx:id="mainBorderPane" styleClass="mainbackground" stylesheets="@style.css">
+         <left>
+            <VBox fx:id="leftVBox" maxHeight="400.0" BorderPane.alignment="CENTER">
+               <children>
+      <!--                  <Label layoutX="81.0" layoutY="26.0" text="Chat" />-->
+                  <fx:include source="ChatWindow.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                  <Region VBox.vgrow="ALWAYS" />
+                  <HBox alignment="CENTER">
+                     <children>
+                        <ProgressIndicator fx:id="timer" minHeight="40.0" minWidth="40.0" progress="0.0" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="timername" alignment="CENTER" text="Timer:" textFill="WHITE" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="text" />
+                              <String fx:value="headline" />
+                           </styleClass>
+                        </Label>
+                        <Label fx:id="timerLabel" text="30" textFill="#fffefe" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="text" />
+                              <String fx:value="headline" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="15.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <center>
+            <StackPane fx:id="centerStack" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="centerVBox">
+                     <children>
+                   <HBox fx:id="gameboardHBox" alignment="CENTER">
+                           <children>
+                              <fx:include source="GameBoard.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="180.0" right="200.0" top="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <JFXDialog fx:id="winningDialog" maxWidth="1.7976931348623157E308" styleClass="floatingWindowforPopUp" transitionType="TOP">
+                     <children>
+                        <VBox fx:id="winningWindow" alignment="CENTER" fillWidth="false" maxWidth="1.7976931348623157E308" stylesheets="@style.css">
+                           <children>
+                              <HBox fx:id="winningLabelBox" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="winningBox" VBox.vgrow="SOMETIMES">
+                                 <children>
+                                    <Label fx:id="congratsLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="congratsLabel" textAlignment="CENTER" textFill="#bbdefb" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                 </children>
+                              </HBox>
+                              <VBox fx:id="winningStatsBox" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" styleClass="winningBox" VBox.vgrow="SOMETIMES">
+                                 <children>
+                                    <Label fx:id="winningStats" maxWidth="1.7976931348623157E308" styleClass="winningLabel" text="winningStats" VBox.vgrow="ALWAYS" />
+                                    <Label fx:id="winningRound" text="winningRound" VBox.vgrow="ALWAYS">
+                                       <styleClass>
+                                          <String fx:value="winningLabel" />
+                                       </styleClass></Label>
+                                    <Label fx:id="winningDamage" text="winningDamage" VBox.vgrow="ALWAYS">
+                                       <styleClass>
+                                          <String fx:value="winningLabel" />
+                                       </styleClass></Label>
+                                    <Label fx:id="winningReboot" text="winningReboot" VBox.vgrow="ALWAYS">
+                                       <styleClass>
+                                          <String fx:value="winningLabel" />
+                                       </styleClass></Label>
+                                    <Label fx:id="winningUpgrade" text="winningUpgrade" VBox.vgrow="ALWAYS">
+                                       <styleClass>
+                                          <String fx:value="winningLabel" />
+                                       </styleClass></Label>
+                                 </children>
+                              </VBox>
+                              <HBox fx:id="winningButtonHBox" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="winningBox" VBox.vgrow="SOMETIMES">
+                                 <children>
+                                    <Button fx:id="winningMapRoom" mnemonicParsing="false" onAction="#switchToMapRoom" styleClass="buttons" text="Back to the Waiting Room" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="winningQuit" mnemonicParsing="false" onAction="#quitGame" styleClass="buttons" text="Quit" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </JFXDialog>
+               </children>
+            </StackPane>
+         </center>
+         <right>
+            <VBox fx:id="rightVBox" alignment="CENTER" minWidth="250.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox fx:id="smallgrid1box" styleClass="playerInfoBox" />
+                        <GridPane fx:id="smallgridpane1" alignment="CENTER_LEFT" style="-fx-border-color: white;">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="40.0" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="60.0" minWidth="-Infinity" prefWidth="60.0" />
+                              <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="40.0" prefWidth="120.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="gridpane1label" alignment="CENTER" styleClass="text" textFill="WHITE" />
+                              <VBox alignment="CENTER" GridPane.columnIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+                                             <children>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox fx:id="smallgrid2box" alignment="CENTER" styleClass="playerInfoBox" StackPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <GridPane fx:id="player1RegisterGrid" alignment="CENTER">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="player1reg0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="player1reg1" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                                          <ImageView fx:id="player1reg2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                                          <ImageView fx:id="player1reg3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                                          <ImageView fx:id="player1reg4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <GridPane fx:id="smallgridpane2" alignment="CENTER_LEFT" style="-fx-border-color: white;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="40.0" />
+                              <ColumnConstraints hgrow="ALWAYS" maxWidth="60.0" minWidth="-Infinity" prefWidth="60.0" />
+                              <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="40.0" prefWidth="120.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="gridpane2label" alignment="CENTER" styleClass="text" textFill="WHITE" />
+                              <VBox alignment="CENTER" GridPane.columnIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+                                             <children>
+                                                   <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                       <font>
+                                                           <Font size="10.0" />
+                                                       </font>
+                                                </Label>
+                                                   <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                       <font>
+                                                           <Font size="10.0" />
+                                                       </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox fx:id="smallgrid3box" alignment="CENTER" styleClass="playerInfoBox" StackPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <GridPane fx:id="player2RegisterGrid">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="player2reg0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="player2reg1" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                                          <ImageView fx:id="player2reg2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                                          <ImageView fx:id="player2reg3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                                          <ImageView fx:id="player2reg4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <GridPane fx:id="smallgridpane3" alignment="CENTER_LEFT" style="-fx-border-color: white;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="-Infinity" prefWidth="60.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="40.0" prefWidth="120.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="gridpane3label" alignment="CENTER" styleClass="text" textFill="WHITE" />
+                              <VBox alignment="CENTER" GridPane.columnIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+                                             <children>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <StackPane fx:id="player3stack" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox fx:id="smallgrid4box" alignment="CENTER" styleClass="playerInfoBox" StackPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <GridPane fx:id="player3RegisterGrid">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="player3reg0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="player3reg1" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                                          <ImageView fx:id="player3reg2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                                          <ImageView fx:id="player3reg3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                                          <ImageView fx:id="player3reg4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <GridPane fx:id="smallgridpane4" alignment="CENTER_LEFT" style="-fx-border-color: white;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="-Infinity" prefWidth="60.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="40.0" prefWidth="120.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="gridpane4label" alignment="CENTER" styleClass="text" textFill="WHITE" />
+                              <VBox alignment="CENTER" GridPane.columnIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+                                             <children>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox fx:id="smallgrid5box" alignment="CENTER" styleClass="playerInfoBox" StackPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <GridPane fx:id="player4RegisterGrid">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="player4reg0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="player4reg1" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                                          <ImageView fx:id="player4reg2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                                          <ImageView fx:id="player4reg3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                                          <ImageView fx:id="player4reg4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <GridPane fx:id="smallgridpane5" alignment="CENTER_LEFT" style="-fx-border-color: white;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="-Infinity" prefWidth="60.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="40.0" prefWidth="120.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="gridpane5label" alignment="CENTER" styleClass="text" textFill="WHITE" />
+                              <VBox alignment="CENTER" GridPane.columnIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+                                             <children>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox fx:id="smallgrid6box" alignment="CENTER" styleClass="playerInfoBox" StackPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <GridPane fx:id="player5RegisterGrid">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="player5reg0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="player5reg1" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                                          <ImageView fx:id="player5reg2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                                          <ImageView fx:id="player5reg3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                                          <ImageView fx:id="player5reg4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <GridPane fx:id="smallgridpane6" alignment="CENTER_LEFT" style="-fx-border-color: white;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="-Infinity" prefWidth="60.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="40.0" prefWidth="120.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="gridpane6label" alignment="CENTER" styleClass="text" textFill="WHITE" />
+                              <VBox alignment="CENTER" GridPane.columnIndex="1">
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+                                             <children>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="text" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <bottom>
+            <HBox fx:id="bottomHBox" alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <fx:include source="PlayerDeck.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+         </bottom>
+         <top>
+            <HBox fx:id="titel" alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <SplitPane fx:id="labelSplit" dividerPositions="0.3333, 0.6666" HBox.hgrow="ALWAYS">
+                     <items>
+                        <Label fx:id="mapName" alignment="CENTER" maxWidth="1.7976931348623157E308" text="map name" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="text" />
+                              <String fx:value="mid" />
+                           </styleClass>
+                        </Label>
+                        <Label fx:id="round" alignment="CENTER" maxWidth="1.7976931348623157E308" text="round" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="text" />
+                              <String fx:value="mid" />
+                           </styleClass>
+                        </Label>
+                        <Label fx:id="phaseLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" stylesheets="@style.css" text="Current Phase:" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="text" />
+                              <String fx:value="mid" />
+                           </styleClass>
+                        </Label>
+                     </items>
+                  </SplitPane>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</StackPane>
